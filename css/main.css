@@ -346,7 +346,7 @@ section {
 ********About CSS*******
 **************************/
 #about-us {
-  background-image: url(../images/about-bg.jpg);
+  background-image: url(http://xinziji.qiniudn.com/about-bg1.jpg);
   padding: 60px 0;
 }
 
@@ -392,17 +392,17 @@ section {
 ********portfolio CSS*****
 **************************/
 
-#portfolio .container-fluid, 
-#portfolio .container-fluid .col-sm-3  {
+#downloads .container-fluid, 
+#downloads .container-fluid .col-sm-3  {
   overflow: hidden;
   padding: 0;
 }
 
-#portfolio .folio-item {
+#downloads .folio-item {
   position: relative;
 }
 
-#portfolio .overlay {
+#downloads .overlay {
   background-color: #000;
   color: #fff; 
   left: 0;
@@ -467,7 +467,7 @@ section {
   transition: all 0.8s ease-in-out;
 }
 
-#portfolio .folio-item:hover .folio-image {
+#downloads .folio-item:hover .folio-image {
   -webkit-transform: scale(1.5) rotate(-15deg);
   transform: scale(1.5) rotate(-15deg);
 }
@@ -476,18 +476,18 @@ section {
   width: 100%;
 }
 
-#portfolio .folio-item:hover .overlay {
+#downloads .folio-item:hover .overlay {
   opacity: 0.8;
   bottom: 0;
   height: 100%;
 }
 
-#portfolio .folio-item:hover .folio-overview .folio-expand {
+#downloads .folio-item:hover .folio-overview .folio-expand {
   margin-top: 0;
   margin-left:0;
 }
 
-#portfolio .folio-item:hover .overlay .folio-info {
+#downloads .folio-item:hover .overlay .folio-info {
   opacity: 1;  
   margin-bottom:0;
   margin-top:0;
@@ -605,23 +605,23 @@ section {
 /*************************
 *******Features CSS*******
 **************************/
-#features {
+#customs {
   text-align: center;
   background-image: url(../images/features-bg.jpg);
 }
 
-#features i {
+#customs i {
   font-size: 48px;
 }
 
-#features h3 {
+#customs h3 {
   margin-top: 15px;
   font-size: 30px;
   margin-bottom: 7px;
   color: #fff;
 }
 
-#features .slider-overlay {
+#customs .slider-overlay {
   opacity: 0.8;
 }
 
@@ -1086,4 +1086,90 @@ ul.address {
   background: #d5ab07;
 }
 
+/* PORTFOLIO */
 
+#about-us {
+  position:relative;
+  text-align:center;
+  padding:50px 0;
+}
+
+#about-us .portfolio-item {
+    overflow: hidden;
+    position: relative;
+  display:block;
+  cursor:pointer;
+  margin:0;
+}
+
+#about-us .portfolio-item .hover-overlay {
+    width: 100%;
+  height: 100%;
+  position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: all 0.6s ease-out 0s;
+  -webkit-transform: translateX(-100%);
+  -webkit-transition: all 0.6s ease-out;
+  padding:20px 5% 0 35%;
+}
+
+#about-us .portfolio-item img {
+    transform: translateX(0px);
+  transition: all 0.6s ease-out 0s;
+  -webkit-transform: translateX(0px);
+  -webkit-transition: all 0.6s ease-out;
+}
+
+#about-us .portfolio-item:hover img {
+    transform: translateX(70%);
+  -webkit-transform: translateX(70%);
+}
+
+#about-us .portfolio-item:hover .hover-overlay {
+    transform: translateX(-30%);
+  -webkit-transform: translateX(-30%);
+}
+
+#about-us .portfolio-item-description {
+  border:1px solid #CCCCCC;
+  background-color:#FFFFFF;
+  border-top-width:0;
+  padding:0 10px;
+}
+
+#about-us .portfolio-item-description h3 {
+  color:#555555;
+  font-size:18px;
+  font-weight:400;
+  line-height:30px;
+  margin:0;
+  padding:15px 0;
+}
+
+#about-us .portfolio-item p {
+  color:#FFFFFF;
+  line-height:25px;
+  text-align:left;
+}
+
+#about-us .portfolio-item a i {
+  color:#FFFFFF;
+  border-radius:50%;
+  border:2px solid #FFFFFF;
+  width:45px;
+  height:45px;
+  text-align:center;
+  font-size:18px;
+  padding-top:12px;
+  margin-right:15px;
+}
+
+#about-us .portfolio-item a:hover i {
+  background-color:#FFFFFF;
+}
+
+#about-us .portfolio-item a:last-child i {
+  margin-right:0;
+}
