@@ -1,0 +1,146 @@
+<div class="page-content">
+	<div class="page-header">
+		<h1>异常处理</h1>
+	</div>	
+	<div class="row">
+		<div class="col-xs-10">
+			<!-- PAGE CONTENT BEGINS -->
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="col-sm-1 control-label no-padding-right"> 订单号 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="订单号" >
+					</div>
+					
+					<label class="col-sm-1 control-label no-padding-right"> 公司名称 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="公司名称" >
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 姓名 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="姓名" >
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 手机号 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="手机号" >
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1 control-label no-padding-right"> 提交时间 </label>
+					<div class="col-sm-2">
+						<input type="Date" placeholder="下单时间" >
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 到 </label>
+					<div class="col-sm-2">
+						<input type="Date" placeholder="下单时间" >
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 发货地 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="发货地" >
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 收货地 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="收货地" >
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1 control-label no-padding-right"> 异常状态 </label>
+					<div class="col-sm-2">
+						<select class="form-control" id="form-field-select-1">
+							<option value="">&nbsp;</option>
+							<option value="AL">司机提交异常</option>
+							<option value="AK">系统提醒异常</option>
+						</select>
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 运单状态 </label>
+					<div class="col-sm-2">
+						<select class="form-control" id="form-field-select-1">
+							<option value="">&nbsp;</option>
+							<option value="AL">待提货</option>
+							<option value="AK">货品运输中</option>
+							<option value="AK">货品已到达</option>
+							<option value="AK">银行卡已提交</option>
+						</select>
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 运单号 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="运单号" >
+					</div>
+				</div>
+			</form>
+			<hr>
+		</div>
+		<div class="col-xs-2">
+			<button class="btn btn-app btn-inverse btn-xs">
+				<i class="icon-search bigger-160"></i>搜索
+			</button>
+			<button class="btn btn-app btn-primary btn-xs">
+				<i class="icon-file bigger-160"></i>新增
+			</button>
+		</div>
+		<div class="col-xs-12">
+			<div class="error-container">
+				<div class="well">
+					<h5>
+						订单号：123456  
+						<span class="label label-success arrowed-in arrowed-in-right">  订单已处理</span>  
+						<span class="pull-right red">未支付</span>
+					</h5>
+					<span class="inline">
+						<img src="assets/images/gallery/image-1.jpg" height="100">
+						<img src="assets/images/gallery/image-2.jpg" height="100">
+						<img src="assets/images/gallery/image-3.jpg" height="100">
+						<img src="assets/images/gallery/image-4.jpg" height="100">
+						<img src="assets/images/gallery/image-5.jpg" height="100">
+					</span>
+					<h6><i class="icon-spinner icon-spin orange"></i>晋江高速</h6>
+					<h5>异常原因：异常原因说明</h5>
+					<h5>处理结果：处理结果说明</h5>
+					<hr>
+					<h3>上海 浦东 ——> 江苏 南通&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter red">10000元</span></h3>
+					<h6>11月09日 09:00  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12月09日 09:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter green">计划派车：2辆17.5米，1辆10米</span></h6>
+					<h6>螺丝钢：20方；变压器：20方；塑料管：20方；</h6>
+					<hr>
+					<h4 class="lighter smaller">
+						南通发发贸易有限公司
+						<i class="icon-user"></i>
+						李四  13041666292
+						<button class="btn btn-default pull-right">查看相关车辆</button>
+						<button class="btn btn-success pull-right">查看司机位置</button>
+					</h4>
+				</div>
+				<div class="well">
+					<h5>
+						订单号：123456  
+						<span class="label label-success arrowed-in arrowed-in-right">  订单已处理</span>  
+						<span class="pull-right red">未支付</span>
+					</h5>
+					<span class="inline">
+						<img src="assets/images/gallery/image-1.jpg" height="100">
+						<img src="assets/images/gallery/image-2.jpg" height="100">
+						<img src="assets/images/gallery/image-3.jpg" height="100">
+						<img src="assets/images/gallery/image-4.jpg" height="100">
+						<img src="assets/images/gallery/image-5.jpg" height="100">
+					</span>
+					<h6><i class="icon-spinner icon-spin orange"></i>晋江高速</h6>
+					<h5>异常原因：异常原因说明</h5>
+					<h5>处理结果：处理结果说明</h5>
+					<hr>
+					<h3>上海 浦东 ——> 江苏 南通&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter red">10000元</span></h3>
+					<h6>11月09日 09:00  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12月09日 09:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter green">计划派车：2辆17.5米，1辆10米</span></h6>
+					<h6>螺丝钢：20方；变压器：20方；塑料管：20方；</h6>
+					<hr>
+					<h4 class="lighter smaller">
+						南通发发贸易有限公司
+						<i class="icon-user"></i>
+						李四  13041666292
+						<button class="btn btn-default pull-right">查看相关车辆</button>
+						<button class="btn btn-success pull-right">查看司机位置</button>
+					</h4>
+				</div>
+			</div>
+
+			<!-- PAGE CONTENT ENDS -->
+		</div><!-- /.col -->
+	</div>
+</div>

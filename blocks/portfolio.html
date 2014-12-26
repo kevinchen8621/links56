@@ -1,0 +1,41 @@
+<section id="{{=it.block.key}}">
+	<div class="container">
+		<div class="row">
+			<div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<h2>{{=it.block.title}}</h2>
+				<p>{{=it.block.subtitle}}</p>
+			</div>
+		</div> 
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			{{~it.data:item}}
+			<div class="col-sm-3">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<div class="folio-image">
+						<img class="img-responsive" src="{{=item.face}}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>{{=item.title}}</h3>
+									<p>{{=item.subtitle}}</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a href="{{=item.face}}" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{~}}
+		</div>
+	</div>
+	<div id="portfolio-single-wrap">
+		<div id="portfolio-single">
+		</div>
+	</div><!-- /#portfolio-single-wrap -->
+</section><!--/#portfolio-->

@@ -1,0 +1,13 @@
+<section id="{{=it.block.key}}" class="parallax">
+	<div class="container">
+		<div class="row count">
+			{{~it.data:item}}
+			<div class="col-sm-3 col-xs-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<i class="fa fa-{{=item.icon}}"></i>
+				<h3 class="timer">{{=item.subtitle}}</h3>
+				<p>{{=item.title}}</p>
+			</div>
+			{{~}}
+		</div>
+	</div>
+</section><!--/#features-->

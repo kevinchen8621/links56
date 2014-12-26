@@ -1,0 +1,26 @@
+<section id="{{=it.block.key}}" class="parallax">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="about-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<h2>{{=it.block.title}}</h2>
+					<p>{{=it.block.subtitle}}</p>
+					<p>{{=it.block.description}}</p>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="our-skills wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+					{{~it.data:item:index}}
+					<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+						<p class="lead">{{=item.title}}{{=item.subtitle}}</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="{{=item.pre}}">{{=item.pre}}%</div>
+						</div>
+					</div>
+					{{~}}
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!--/#about-us-->
+

@@ -1,0 +1,27 @@
+<section id="{{=it.block.key}}">
+	<div class="container">
+		<div class="row">
+			<div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+				<h2>{{=it.block.title}}</h2>
+				<p>{{=it.block.subtitle}}</p>
+			</div>
+		</div>
+		<div class="pricing-table">
+			<div class="row">
+				{{~it.data:item}}
+				<div class="col-sm-6 col-md-3">
+					<div class="single-table featured wow flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
+						<h3>{{=item.title}}</h3>
+						<ul>
+							{{~item.description.split('|'):line}}
+							<li>{{=line}}</li>
+							{{~}}
+						</ul>
+						<a href="{{=item.pre}}" class="btn btn-lg btn-primary">{{=item.subtitle}}</a>
+					</div>
+				</div>
+				{{~}}
+			</div>
+		</div>
+	</div>
+</section><!--/#pricing-->

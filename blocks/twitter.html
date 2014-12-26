@@ -1,0 +1,30 @@
+<section id="{{=it.block.key}}" class="parallax">
+	<div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<div class="twitter-icon text-center">
+						<i class="fa fa-{{=it.block.icon}}"></i>
+						<h4>{{=it.block.title}}</h4>
+					</div>
+					<div id="twitter-carousel" class="carousel slide" data-ride="carousel">
+
+						<ol class="carousel-indicators">
+							{{~it.data:item:index}}
+							<li data-target="#twitter-carousel" data-slide-to="{{=index}}" {{?index==0}} class="active"{{?}}></li>
+							{{~}}
+						</ol><!-- /.carousel-indicators -->
+
+						<div class="carousel-inner">
+							{{~it.data:item:index}}
+							<div class="item {{?index==0}}active{{?}}">
+								<p>{{=item.title}}</p>
+							</div>
+							{{~}}
+						</div>												
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!--/#twitter-->

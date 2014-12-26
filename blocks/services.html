@@ -1,0 +1,27 @@
+<section id="{{=it.block.key}}">
+	<div class="container">
+		<div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<div class="row">
+				<div class="text-center col-sm-8 col-sm-offset-2">
+					<h2>{{=it.block.title}}</h2>
+					<p>{{=it.block.subtitle}}</p>
+				</div>
+			</div> 
+		</div>
+		<div class="text-center our-services">
+			<div class="row">
+				{{~it.data:item:index}}
+				<div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<div class="service-icon">
+						<i class="fa fa-{{=item.icon}}"></i>
+					</div>
+					<div class="service-info">
+						<h3>{{=item.title}}</h3>
+						<p>{{=item.subtitle}}</p>
+					</div>
+				</div>
+				{{~}}
+			</div>
+		</div>
+	</div>
+</section><!--/#services-->

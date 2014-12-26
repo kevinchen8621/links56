@@ -1,0 +1,63 @@
+<section id="contact">
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
+	<div id="baidu-map" style="height:350px" class="wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
+	<div id="contact-us" class="parallax">
+		<div class="container">
+			<div class="row">
+				<div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<h2>{{=it.block.title}}</h2>
+					<p>{{=it.block.subtitle}}</p>
+				</div>
+			</div>
+			<div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+				<div class="row">
+					<div class="col-sm-6">
+						<form id="main-contact-form" name="contact-form" method="post" action="#">
+							<div class="row	wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<input type="text" name="name" class="form-control" placeholder="姓名" required="required">
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<input type="email" name="email" class="form-control" placeholder="Email" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="text" name="subject" class="form-control" placeholder="主题" required="required">
+							</div>
+							<div class="form-group">
+								<textarea name="message" id="message" class="form-control" rows="4" placeholder="内容" required="required"></textarea>
+							</div>												
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-lg btn-block">提交信息</button>
+							</div>
+						</form>	 
+					</div>
+					<div class="col-sm-6">
+						<div class="contact-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+							<p>{{=it.block.description}}</p>
+							<ul class="address">
+								<li><i class="fa fa-map-marker"></i> <span> Address:</span> {{=it.dist}} {{=it.address}}</li>
+								<li><i class="fa fa-phone"></i> <span> Phone:</span> {{=it.tel}}</li>
+								<li><i class="fa fa-envelope"></i> <span> Email:</span><a href="mailto:someone@yoursite.com"> {{=it.email}}</a></li>
+								<li><i class="fa fa-globe"></i> <span> Website:</span> <a href="#">{{=it.domains[0]}}</a></li>
+							</ul>
+						</div>														
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>				
+</section><!--/#contact-->
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("baidu-map");
+	var point = new BMap.Point(116.404, 39.915);
+	map.centerAndZoom(point, 15);
+	var marker = new BMap.Marker(point);  // 创建标注
+	map.addOverlay(marker);               // 将标注添加到地图中
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+</script>
