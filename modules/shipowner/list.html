@@ -1,17 +1,12 @@
 <div class="page-content">
 	<div class="page-header">
-		<h1>待收款</h1>
+		<h1>货主查询</h1>
 	</div>	
 	<div class="row">
 		<div class="col-xs-10">
 			<!-- PAGE CONTENT BEGINS -->
 			<form class="form-horizontal" role="form">
 				<div class="form-group">
-					<label class="col-sm-1 control-label no-padding-right"> 订单号 </label>
-					<div class="col-sm-2">
-						<input type="text" placeholder="订单号" >
-					</div>
-					
 					<label class="col-sm-1 control-label no-padding-right"> 公司名称 </label>
 					<div class="col-sm-2">
 						<input type="text" placeholder="公司名称" >
@@ -24,57 +19,50 @@
 					<div class="col-sm-2">
 						<input type="text" placeholder="手机号" >
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-1 control-label no-padding-right"> 支付状态 </label>
+					<label class="col-sm-1 control-label no-padding-right"> 是否认证 </label>
 					<div class="col-sm-2">
 						<select class="form-control" id="form-field-select-1">
 							<option value="">&nbsp;</option>
-							<option value="AL">未收款</option>
-							<option value="AK">部分收款</option>
+							<option value="AL">已认证</option>
+							<option value="AK">未认证</option>
 						</select>
-					</div>
-					<label class="col-sm-1 control-label no-padding-right"> 异常 </label>
-					<div class="col-sm-2">
-						<select class="form-control" id="form-field-select-1">
-							<option value="">&nbsp;</option>
-							<option value="AL">无异常</option>
-							<option value="AK">有异常</option>
-						</select>
-					</div>
-					<label class="col-sm-1 control-label no-padding-right"> 发货地 </label>
-					<div class="col-sm-2">
-						<input type="text" placeholder="发货地" >
-					</div>
-					<label class="col-sm-1 control-label no-padding-right"> 收货地 </label>
-					<div class="col-sm-2">
-						<input type="text" placeholder="收货地" >
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-1 control-label no-padding-right"> 运单号 </label>
+					<label class="col-sm-1 control-label no-padding-right"> 注册时间 </label>
 					<div class="col-sm-2">
-						<input type="text" placeholder="运单号" >
+						<input type="Date" placeholder="注册时间" >
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 到 </label>
+					<div class="col-sm-2">
+						<input type="Date" placeholder="注册时间" >
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 所在地区 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="所在地区" >
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 年营业额 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="年营业额" >
 					</div>
 				</div>
 			</form>
 			<hr>
 		</div>
 		<div class="col-xs-2">
-			<button class="btn btn-app btn-inverse btn-xs">
+			<button ng-click="search()" class="btn btn-app btn-inverse btn-xs">
 				<i class="icon-search bigger-160"></i>搜索
 			</button>
-			<button class="btn btn-app btn-primary btn-xs">
+			<a href="#/shipowner_edit" class="btn btn-app btn-primary btn-xs">
 				<i class="icon-file bigger-160"></i>新增
-			</button>
+			</a>
 		</div>
 		<div class="col-xs-12">
 			<div class="error-container">
 				<div class="well">
 					<h5>
 						订单号：123456  
-						<span class="label label-success arrowed-in arrowed-in-right">  订单已处理</span>  
-						<span class="pull-right red">未支付</span>
+						<span class="pull-right red">待提货</span>
 					</h5>
 					<h3>上海 浦东 ——> 江苏 南通&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter red">10000元</span></h3>
 					<h6>11月09日 09:00  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12月09日 09:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter green">计划派车：2辆17.5米，1辆10米</span></h6>
@@ -89,8 +77,7 @@
 				<div class="well">
 					<h5>
 						订单号：123456  
-						<span class="label label-success arrowed-in arrowed-in-right">  订单已处理</span>  
-						<span class="pull-right red">部分支付</span>
+						<span class="pull-right red">货品运输中</span>
 					</h5>
 					<h3>上海 浦东 ——> 江苏 南通&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter red">10000元</span></h3>
 					<h6>11月09日 09:00  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12月09日 09:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter green">计划派车：2辆17.5米，1辆10米</span></h6>
