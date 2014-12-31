@@ -12,7 +12,7 @@
 **************************/
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Microsoft YaHei" ! important; 
   font-size: 14px;
   line-height: 24px;
   color: #666;
@@ -1177,4 +1177,4 @@ ul.address {
 }
 
 h1.icon_num{font-size: 72px;font-weight: 600;}
-h2.service_title{font-size: 26px;margin-bottom: 10px;}
+h2.service_title{font-size: 26px;margin-bottom: 12px;}
