@@ -7,11 +7,6 @@
 			<!-- PAGE CONTENT BEGINS -->
 			<form class="form-horizontal" role="form">
 				<div class="form-group">
-					<label class="col-sm-1 control-label no-padding-right"> 订单号 </label>
-					<div class="col-sm-2">
-						<input type="text" placeholder="订单号" >
-					</div>
-					
 					<label class="col-sm-1 control-label no-padding-right"> 公司名称 </label>
 					<div class="col-sm-2">
 						<input type="text" placeholder="公司名称" >
@@ -24,14 +19,90 @@
 					<div class="col-sm-2">
 						<input type="text" placeholder="手机号" >
 					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 订单类型 </label>
+					<div class="col-sm-2">
+						<select class="form-control" id="form-field-select-1">
+							<option value="">&nbsp;</option>
+							<option value="AL">拍照订单</option>
+							<option value="AK">文字订单</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1 control-label no-padding-right"> 发货地 </label>
+					<div class="col-sm-1" style="padding-right:0px;">
+						<select class="form-control no-padding-right" 
+							ng-model="user.province" 
+							ng-options="key as key for (key,value) in dists"
+							ng-change="user.city='';user.district='';">
+							<option value="">-- 省 --</option>
+						</select>
+					</div>
+					<div class="col-sm-1" style="padding-left:0px;padding-right:0px;">
+						<select class="form-control"
+							ng-model="user.city" 
+							ng-options="key as key for (key,value) in dists[user.province]"
+							ng-change="user.district='';">
+							<option value="">-- 市 --</option>
+						</select>
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 收货地 </label>
+					<div class="col-sm-1" style="padding-right:0px;">
+						<select class="form-control no-padding-right" 
+							ng-model="user.province" 
+							ng-options="key as key for (key,value) in dists"
+							ng-change="user.city='';user.district='';">
+							<option value="">-- 省 --</option>
+						</select>
+					</div>
+					<div class="col-sm-1" style="padding-left:0px;padding-right:0px;">
+						<select class="form-control"
+							ng-model="user.city" 
+							ng-options="key as key for (key,value) in dists[user.province]"
+							ng-change="user.district='';">
+							<option value="">-- 市 --</option>
+						</select>
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 定单号 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="运单号" >
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 关联运单号 </label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="收货地" >
+					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-1 control-label no-padding-right"> 订单状态 </label>
 					<div class="col-sm-2">
 						<select class="form-control" id="form-field-select-1">
-							<option value="">&nbsp;</option>
+							<option value="">全部</option>
+							<option value="">待做运输计划</option>
+							<option value="">订单已取消</option>
+							<option value="">待派车</option>
 							<option value="AL">待提货</option>
 							<option value="AK">货品运输中</option>
+							<option value="AK">货品已到达,未收款</option>
+							<option value="AK">订单部分收款</option>
+							<option value="AK">订单已结束</option>
+							<option value="AK">订单关闭</option>
+						</select>
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 是否有抢单 </label>
+					<div class="col-sm-2">
+						<select class="form-control" id="form-field-select-1">
+							<option value="">全部</option>
+							<option value="AL">有抢单</option>
+							<option value="AK">无抢单</option>
+						</select>
+					</div>
+					<label class="col-sm-1 control-label no-padding-right"> 抢单状态 </label>
+					<div class="col-sm-2">
+						<select class="form-control" id="form-field-select-1">
+							<option value="">全部</option>
+							<option value="AL">待开始</option>
+							<option value="AK">进行中</option>
+							<option value="AK">已结束</option>
 						</select>
 					</div>
 					<label class="col-sm-1 control-label no-padding-right"> 异常 </label>
@@ -41,20 +112,6 @@
 							<option value="AL">无异常</option>
 							<option value="AK">有异常</option>
 						</select>
-					</div>
-					<label class="col-sm-1 control-label no-padding-right"> 发货地 </label>
-					<div class="col-sm-2">
-						<input type="text" placeholder="发货地" >
-					</div>
-					<label class="col-sm-1 control-label no-padding-right"> 收货地 </label>
-					<div class="col-sm-2">
-						<input type="text" placeholder="收货地" >
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-1 control-label no-padding-right"> 运单号 </label>
-					<div class="col-sm-2">
-						<input type="text" placeholder="运单号" >
 					</div>
 				</div>
 			</form>
@@ -71,34 +128,64 @@
 		<div class="col-xs-12">
 			<div class="error-container">
 				<div class="well">
-					<h5>
-						订单号：123456  
-						<span class="pull-right red">待提货</span>
-					</h5>
-					<h3>上海 浦东 ——> 江苏 南通&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter red">10000元</span></h3>
-					<h6>11月09日 09:00  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12月09日 09:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter green">计划派车：2辆17.5米，1辆10米</span></h6>
-					<h6>螺丝钢：20方；变压器：20方；塑料管：20方；</h6>
-					<hr>
-					<h4 class="lighter smaller">
-						南通发发贸易有限公司
-						<i class="icon-user"></i>
-						李四  13041666292
-					</h4>
+					<div class="row">
+						<div class="col-md-2"><h5>运单号：<span  class="blue">123456</span></h5></div>
+						<div class="col-md-6"><h5 class="orange">待做运输计划 </h5></div>
+						<div class="col-md-4"><h5 class="pull-right">下单时间：2014-12-12 12:12 </h5></div>
+						<div class="col-md-2"><h4>上海 浦东</h4></div>
+						<div class="col-md-1"><h4>——> </h4></div>
+						<div class="col-md-9"><h4>江苏 南通</h4></div>
+						<div class="col-md-2"><h5>11月09日 09:00 </h5></div>
+						<div class="col-md-9 col-md-offset-1"><h5 class="">12月09日 09:00</h5></div>
+						<div class="col-md-12"><h5 class="">螺丝钢：20方；变压器：20方；塑料管：20方；</h5></div>
+					</div>
+					<hr class="small">
+					<div class="row">
+						<div class="col-md-3"><h4 class="blue">南通发发贸易有限公司</h4></div>
+						<div class="col-md-5"><h4><i class="icon-user"></i> 李四</span>  13041666292</h4></div>
+						<div class="col-md-2"><button class="btn btn-default btn-sm pull-right">查看相关车辆</button></div>
+						<div class="col-md-2"><button class="btn btn-danger btn-sm pull-right">查看司机位置</button></div>
+					</div>
 				</div>
 				<div class="well">
-					<h5>
-						订单号：123456  
-						<span class="pull-right red">货品运输中</span>
-					</h5>
-					<h3>上海 浦东 ——> 江苏 南通&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter red">10000元</span></h3>
-					<h6>11月09日 09:00  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12月09日 09:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter green">计划派车：2辆17.5米，1辆10米</span></h6>
-					<h6>螺丝钢：20方；变压器：20方；塑料管：20方；</h6>
-					<hr>
-					<h4 class="lighter smaller">
-						南通发发贸易有限公司
-						<i class="icon-user"></i>
-						李四  13041666292
-					</h4>
+					<div class="row">
+						<div class="col-md-2"><h5>运单号：<span  class="blue">123456</span></h5></div>
+						<div class="col-md-6"><h5 class="orange">待做运输计划 </h5></div>
+						<div class="col-md-4"><h5 class="pull-right">下单时间：2014-12-12 12:12 </h5></div>
+						<div class="col-md-2"><h4>上海 浦东</h4></div>
+						<div class="col-md-1"><h4>——> </h4></div>
+						<div class="col-md-9"><h4>江苏 南通</h4></div>
+						<div class="col-md-2"><h5>11月09日 09:00 </h5></div>
+						<div class="col-md-9 col-md-offset-1"><h5 class="">12月09日 09:00</h5></div>
+						<div class="col-md-12"><h5 class="">螺丝钢：20方；变压器：20方；塑料管：20方；</h5></div>
+					</div>
+					<hr class="small">
+					<div class="row">
+						<div class="col-md-3"><h4 class="blue">南通发发贸易有限公司</h4></div>
+						<div class="col-md-5"><h4><i class="icon-user"></i> 李四</span>  13041666292</h4></div>
+						<div class="col-md-2"><button class="btn btn-default btn-sm pull-right">查看相关车辆</button></div>
+						<div class="col-md-2"><button class="btn btn-danger btn-sm pull-right">查看司机位置</button></div>
+					</div>
+				</div>
+				<div class="well">
+					<div class="row">
+						<div class="col-md-2"><h5>运单号：<span  class="blue">123456</span></h5></div>
+						<div class="col-md-6"><h5 class="orange">待做运输计划 </h5></div>
+						<div class="col-md-4"><h5 class="pull-right">下单时间：2014-12-12 12:12 </h5></div>
+						<div class="col-md-2"><h4>上海 浦东</h4></div>
+						<div class="col-md-1"><h4>——> </h4></div>
+						<div class="col-md-9"><h4>江苏 南通</h4></div>
+						<div class="col-md-2"><h5>11月09日 09:00 </h5></div>
+						<div class="col-md-9 col-md-offset-1"><h5 class="">12月09日 09:00</h5></div>
+						<div class="col-md-12"><h5 class="">螺丝钢：20方；变压器：20方；塑料管：20方；</h5></div>
+					</div>
+					<hr class="small">
+					<div class="row">
+						<div class="col-md-3"><h4 class="blue">南通发发贸易有限公司</h4></div>
+						<div class="col-md-5"><h4><i class="icon-user"></i> 李四</span>  13041666292</h4></div>
+						<div class="col-md-2"><button class="btn btn-default btn-sm pull-right">查看相关车辆</button></div>
+						<div class="col-md-2"><button class="btn btn-danger btn-sm pull-right">查看司机位置</button></div>
+					</div>
 				</div>
 			</div>
 
