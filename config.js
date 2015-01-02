@@ -7,6 +7,7 @@ define(function(require, exports, module) {
 			.when('/shipowner_authentication', {controller: 'ShipownerAuthenticationCtl',controllerUrl: 'modules/shipowner/authentication.js',templateUrl: 'modules/shipowner/authentication.html'})
 			.when('/shipowner_dispatch', {controller: 'ShipownerDispatchCtl',controllerUrl: 'modules/shipowner/dispatch.js',templateUrl: 'modules/shipowner/dispatch.html'})
 			.when('/shipowner_plan', {controller: 'ShipownerPlanCtl',controllerUrl: 'modules/shipowner/plan.js',templateUrl: 'modules/shipowner/plan.html'})
+			.when('/shipowner_neworder', {controller: 'ShipownerNeworderCtl',controllerUrl: 'modules/shipowner/neworder.js',templateUrl: 'modules/shipowner/neworder.html'})
 			.when('/shipowner_receive', {controller: 'ShipownerReceiveCtl',controllerUrl: 'modules/shipowner/receive.js',templateUrl: 'modules/shipowner/receive.html'})
 			.when('/shipowner_track', {controller: 'ShipownerTrackCtl',controllerUrl: 'modules/shipowner/track.js',templateUrl: 'modules/shipowner/track.html'})
 			.when('/shipowner_list', {controller: 'ShipownerListCtl',controllerUrl: 'modules/shipowner/list.js',templateUrl: 'modules/shipowner/list.html'})

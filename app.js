@@ -4,6 +4,7 @@ define(function (require, exports, module) {
 		"angular-lazyload", 
 		"ngRoute",
 		"ngAnimate",
+		'localytics.directives',
 	]);
 	require('./services.js')(app);
 	require('./directives.js')(app);
