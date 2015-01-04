@@ -20,6 +20,37 @@ define(function (require, exports, module) {
 			{_id: "111122223333444455551001", domain:"open163.xinziji.com"},
 		];
 
+		var custs = JSON.parse($window.localStorage.custs || "[]");
+		if(!custs || !custs.length){
+			custs = [
+				{_id:10001, name:"江山变压器厂",province:"上海市", city:"上海市", district:"浦东新区", address:"浦东南路588号22楼", contact:"张三", tel:"13123443344"},
+				{_id:10002, name:"广州紫光电器厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号23楼", contact:"李四", tel:"13123443344"},
+				{_id:10003, name:"上海三斯自行车厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号24楼", contact:"王二", tel:"13123443344"},
+				{_id:10004, name:"上海高东造漆厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号25楼", contact:"麻子", tel:"13123443344"},
+			];			
+			$window.localStorage.custs = JSON.stringify(custs);
+		}
+		var froms = JSON.parse($window.localStorage.froms || "[]");
+		if(!froms || !froms.length){
+			froms = [
+				{_id:10001, name:"江山变压器厂",province:"上海市", city:"上海市", district:"浦东新区", address:"浦东南路588号22楼", contact:"张三", tel:"13123443344"},
+				{_id:10002, name:"广州紫光电器厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号23楼", contact:"李四", tel:"13123443344"},
+				{_id:10003, name:"上海三斯自行车厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号24楼", contact:"王二", tel:"13123443344"},
+				{_id:10004, name:"上海高东造漆厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号25楼", contact:"麻子", tel:"13123443344"},
+			];			
+			$window.localStorage.froms = JSON.stringify(froms);
+		}
+		var tos = JSON.parse($window.localStorage.tos || "[]");
+		if(!tos || !tos.length){
+			tos = [
+				{_id:10001, name:"江山变压器厂",province:"上海市", city:"上海市", district:"浦东新区", address:"浦东南路588号22楼", contact:"张三", tel:"13123443344"},
+				{_id:10002, name:"广州紫光电器厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号23楼", contact:"李四", tel:"13123443344"},
+				{_id:10003, name:"上海三斯自行车厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号24楼", contact:"王二", tel:"13123443344"},
+				{_id:10004, name:"上海高东造漆厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号25楼", contact:"麻子", tel:"13123443344"},
+			];			
+			$window.localStorage.tos = JSON.stringify(tos);
+		}
+
 
 		$rootScope.user = JSON.parse($window.localStorage.user || "{}");
 		//没有之前赋值一个假的

@@ -1,7 +1,7 @@
 define(function (require, exports, module) {
 	'use strict';
 	module.exports = function(app){
-		app.register.controller('OrderEditCtl', ['$scope', '$rootScope', '$routeParams', '$location', '$window', function($scope, $rootScope, $routeParams, $location, $window){
+		app.register.controller('OrderDispatchCtl', ['$scope', '$rootScope', '$routeParams', '$location', '$window', function($scope, $rootScope, $routeParams, $location, $window){
 			$scope.new_order = function(){
 				$scope.order = {
 					cust: {},
@@ -10,8 +10,6 @@ define(function (require, exports, module) {
 					goods:[],
 					pickup_at: new Date(),
 					send_at: new Date(),
-					status: "待做运输计划",
-					create_at: new Date(),
 				};
 				$scope.isDisable = false;
 				$scope.lbl_order = "新建订单";
