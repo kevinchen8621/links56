@@ -296,7 +296,7 @@
 		<script src="assets/js/flot/jquery.flot.pie.min.js"></script>
 		<script src="assets/js/flot/jquery.flot.resize.min.js"></script>
 		<script src="assets/js/chosen.jquery.js"></script>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gd0GyxGUxSCoAbmdyQBhyhrZ"></script>
+
 
 		<!-- ace scripts -->
 
@@ -310,7 +310,6 @@
 		<script src="lib/angular-route/angular-route.min.js"></script>
 		<script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
 		<script src="lib/angular-animate/angular-animate.min.js"></script>
-		<script src="lib/BaiduMapForAngularJS/baiduMap.js"></script>
 		<script src="assets/js/chosen.js"></script>
 		<script src="assets/datePicker.js"></script>
 		<script src="lib/angular-lazyload/dist/angular-lazyload.min.js"></script>
@@ -318,6 +317,9 @@
 		<script>
 			seajs.config({
 				base: './',
+				alias: {
+					"baidumap": "http://api.map.baidu.com/getscript?v=2.0&ak=gd0GyxGUxSCoAbmdyQBhyhrZ&services",
+				}
 			});
 			seajs.on('error', function(module){
 				if(module.status!=5){
