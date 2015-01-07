@@ -281,16 +281,16 @@
 				</div>
 			</div>
 		</div>
-		<div ng-show="order._id" class="col-xs-10">
+		<div ng-show="order._id" class="col-xs-4">
 			<div class="widget-box transparent">
 				<div class="widget-header">
 					<h4 class="lighter">费用清单</h4>
 					<div class="widget-toolbar no-border">
-						<a href="#" data-action="collapse"><i class="icon-chevron-down"></i></a>
+						<a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a>
 					</div>
 				</div>
 				<div class="widget-body">
-					<div class="widget-body-inner" style="display:none;">
+					<div class="widget-body-inner">
 						<div class="widget-main padding-6 no-padding-left no-padding-right">
 							<div class="table-responsive">
 								<table class="table table-striped table-bordered table-hover">
@@ -299,26 +299,60 @@
 											<th>费用名称</th>
 											<th>金额（元）</th>
 											<th>备注</th>
-											<th></th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr ng-repeat="item in order.fees">
-											<td><input ng-model="item.name" class="col-sm-12" type="text" placeholder="费用名称"></td>
-											<td><input ng-model="item.fee" class="col-sm-12" type="text" placeholder="金额（元）"></td>
-											<td><input ng-model="item.description" class="col-sm-12" type="text" placeholder="备注"></td>
-											<td>
-												<div class="btn-group" ng-hide="isDisable">
-													<button ng-click="del_fee(item.name)"  class="btn btn-xs btn-danger"><i class="icon-trash bigger-120"></i></button>
-												</div>
-											</td>
+											<td>{{item.name}}</td>
+											<td>{{item.fee}}</td>
+											<td>{{item.description}}</td>
 										</tr>
 										<tr>
 											<td>合计</td>
 											<td>{{order.sumfee}}</td>
 											<td></td>
-											<td>
-											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-show="order._id" class="col-xs-6">
+			<div class="widget-box transparent">
+				<div class="widget-header">
+					<h4 class="lighter">付款明细</h4>
+					<div class="widget-toolbar no-border">
+						<a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a>
+					</div>
+				</div>
+				<div class="widget-body">
+					<div class="widget-body-inner">
+						<div class="widget-main padding-6 no-padding-left no-padding-right">
+							<div class="table-responsive">
+								<table class="table table-striped table-bordered table-hover">
+									<thead>
+										<tr>
+											<th></th>
+											<th>付款人</th>
+											<th>付款人账号</th>
+											<th>付款人开户行</th>
+											<th>入账日期</th>
+											<th>收款金额</th>
+											<th>备注</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in order.receives">
+											<td>第{{$index + 1}}次</td>
+											<td>{{item.op}}</td>
+											<td>{{item.account}}</td>
+											<td>{{item.bank}}</td>
+											<td>{{item.create_at}}</td>
+											<td>{{item.fee}}</td>
+											<td>{{item.description}}</td>
 										</tr>
 									</tbody>
 								</table>
@@ -333,60 +367,59 @@
 				<div class="widget-header">
 					<h4 class="lighter">调度派车</h4>
 					<div class="widget-toolbar no-border">
-						<a  ng-click="new_dispatch()"><i class="icon-file"></i></a>
-						<a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a>
+						<a href="#" data-action="collapse"><i class="icon-chevron-down"></i></a>
 					</div>
 				</div>
 				<div class="widget-body">
-					<div class="widget-main padding-6 no-padding-left no-padding-right">
-						<div class="error-container">
-							<div class="well" ng-repeat="item in order.dispatchs">
-								<div class="row">
-									<div class="col-md-3">运单号: {{order._id}}_{{$index}}</div>
-									<div class="col-md-2">运费: {{item.fee}} </div>
-									<div class="col-md-2">车型：{{item.car}}</div>
-									<div class="col-md-2">保额：{{item.insurance}}</div>
-									<div class="col-md-3">
-										<select chosen class="chosen-select col-sm-8" ng-model="item.driver" ng-options="driver.name+driver.tel for driver in drivers">
-											<option value="">新建司机信息</option>
-										</select>
-									</div>
-								</div>
-								<hr>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="row" ng-repeat="sub in item.goods">
-											<div class="col-md-2"><h5>{{sub.name}}</h5></div>
-											<div class="col-md-8"><h5>件数 {{sub.num}} 总重量 {{sub.weight}}({{sub.uweight}}) 总体积{{sub.volumn}}({{sub.l}}*{{sub.w}}*{{sub.h}})</h5></div>
-											<div class="col-md-2"><h5>{{sub.description}}</h5></div>
+					<div class="widget-body-inner" style="display:none;">
+						<div class="widget-main padding-6 no-padding-left no-padding-right">
+							<div class="error-container">
+								<div class="well" ng-repeat="item in order.dispatchs">
+									<div class="row">
+										<div class="col-md-3">运单号: {{order._id}}_{{$index}}</div>
+										<div class="col-md-2">运费: {{item.fee}} </div>
+										<div class="col-md-2">车型：{{item.car}}</div>
+										<div class="col-md-2">保额：{{item.insurance}}</div>
+										<div class="col-md-3">
+											<button class="btn btn-primay btn-xs">跟踪</button>
 										</div>
 									</div>
-									<div class="col-md-6">
-										<form class="form-horizontal" role="form">
-											<div class="form-group">
-												<label class="col-sm-2 control-label no-padding-right"> 司机姓名 </label>
-												<div class="col-sm-3">
-													<input ng-model="item.driver.name" class="col-sm-12" type="text" placeholder="司机姓名" >
-												</div>
-												<label class="col-sm-2 control-label no-padding-right"> 联系电话</label>
-												<div class="col-sm-5">
-													<input ng-model="item.driver.tel" class="col-sm-12" type="text" placeholder="联系电话">
+									<div class="row">
+										<div class="col-md-3">司机: {{item.driver.name}}</div>
+										<div class="col-md-2">联系电话: {{item.driver.tel}} </div>
+										<div class="col-md-2">车牌号: {{item.driver.carno}}</div>
+										<div class="col-md-2">抢单时间:{{item.driver.create_at}}</div>
+										<div class="col-md-3">
+											<button class="btn btn-primay btn-xs">跟踪</button>
+										</div>
+									</div>
+									<hr>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="row" ng-repeat="sub in item.goods">
+												<div class="col-md-2"><h5>{{sub.name}}</h5></div>
+												<div class="col-md-8"><h5>件数 {{sub.num}} 总重量 {{sub.weight}}({{sub.uweight}}) 总体积{{sub.volumn}}({{sub.l}}*{{sub.w}}*{{sub.h}})</h5></div>
+												<div class="col-md-2"><h5>{{sub.description}}</h5></div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="profile-activity clearfix">
+												<div>
+													<img class="pull-left" alt="Alex Doe's avatar" src="assets/images/gallery/image-1.jpg">
+													异常情况描述.
+													<a href="#">播放留言</a>
+													<div class="time"><i class="icon-time bigger-110"></i>1个小时前 江苏 江阴</div>
 												</div>
 											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label no-padding-right"> 车牌号 </label>
-												<div class="col-sm-3">
-													<input ng-model="item.driver.carno" class="col-sm-12" type="text" placeholder="车牌号" >
-												</div>
-												<label class="col-sm-2 control-label no-padding-right"> 抢单时间 </label>
-												<div class="col-sm-5">
-													<div class="input-group date">
-														<input type="datetime" class="form-control" date-time ng-model="item.driver.create_at" view="date" placeholder="抢单时间" >
-														<span class="input-group-addon"><i class="icon-calendar"></i></span>
-													 </div>
+											<div class="profile-activity clearfix">
+												<div>
+													<img class="pull-left" alt="Alex Doe's avatar" src="assets/images/gallery/image-2.jpg">
+													异常情况描述.
+													<a href="#">播放留言</a>
+													<div class="time"><i class="icon-time bigger-110"></i>1个小时前 江苏 江阴</div>
 												</div>
 											</div>
-										</form>				
+										</div>
 									</div>
 								</div>
 							</div>
@@ -395,13 +428,61 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col-xs-10">
-		<div class="col-sm-2 col-sm-offset-1">
-			<a href="#/order_edit/{{order._id}}" class="btn btn-app btn-inverse btn-xs"><i class="icon-undo bigger-160"></i>返回修改</a>
-		</div>
-		<div class="col-sm-2 col-sm-offset-1">
-			<a ng-click="save()" class="btn btn-app btn-primary btn-xs"><i class="icon-save bigger-160"></i>提交</a>
+		<div ng-show="order._id" class="col-xs-10">
+			<div class="widget-box transparent">
+				<div class="widget-header">
+					<h4 class="lighter">登记付款记录</h4>
+					<div class="widget-toolbar no-border">
+						<a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a>
+					</div>
+				</div>
+				<div class="widget-body">
+					<div class="widget-body-inner">
+						<div class="widget-main padding-6 no-padding-left no-padding-right">
+							<div class="row">
+								<div class="col-sm-10">
+									<form class="form-horizontal" role="form">
+										<div class="form-group">
+											<label class="col-sm-1 control-label no-padding-right"> 付款人 </label>
+											<div class="col-sm-3">
+												<input ng-model="receive.op" type="text" class="col-sm-12" placeholder="付款人">
+											</div>
+											<label class="col-sm-1 control-label no-padding-right"> 金额 </label>
+											<div class="col-sm-3">
+												<input ng-model="receive.fee" type="text" class="col-sm-12" placeholder="金额">
+											</div>
+											<label class="col-sm-1 control-label no-padding-right"> 入账日期 </label>
+											<div class="col-sm-3">
+												<div class="input-group date">
+													<input type="datetime" class="form-control" date-time ng-model="receive.create_at" view="date" placeholder="要求送货时间">
+													<span class="input-group-addon"><i class="icon-calendar"></i></span>
+												 </div>
+											</div>
+										</div>						
+										<div class="form-group">
+											<label class="col-sm-1 control-label no-padding-right"> 开户行 </label>
+											<div class="col-sm-3">
+												<input ng-model="receive.bank" class="col-sm-12" type="text" placeholder="开户行">
+											</div>
+											<label class="col-sm-1 control-label no-padding-right"> 账号 </label>
+											<div class="col-sm-3">
+												<input ng-model="receive.account" class="col-sm-12" type="text" placeholder="付款人账号">
+											</div>
+											<label class="col-sm-1 control-label no-padding-right"> 备注</label>
+											<div class="col-sm-3">
+												<input ng-model="receive.description" class="col-sm-12" type="text" placeholder="备注">
+											</div>
+										</div>
+									</form>
+								</div>
+								<div class="col-sm-2">
+									<a ng-click="save()" class="btn btn-app btn-primary btn-xs"><i class="icon-save bigger-160"></i>提交</a>
+								</div>
+							</div>				
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

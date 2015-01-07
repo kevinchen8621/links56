@@ -127,8 +127,11 @@
 									</div>
 									<div class="form-group">
 										<label class="col-sm-2 control-label no-padding-right"> 取货时间 </label>
-										<div class="col-sm-4">
-											<input ng-model="order.pickup_at" class="col-sm-12" type="Date" placeholder="要求取货时间"  ng-disabled="isDisable">
+										<div class="col-sm-6">
+											<div class="input-group date">
+												<input type="datetime" class="form-control" date-time ng-model="order.pickup_at" view="date" placeholder="要求取货时间" ng-disabled="isDisable">
+												<span class="input-group-addon"><i class="icon-calendar"></i></span>
+											 </div>
 										</div>
 									</div>
 								</form>				
@@ -199,8 +202,11 @@
 									</div>
 									<div class="form-group">
 										<label class="col-sm-2 control-label no-padding-right"> 送货时间 </label>
-										<div class="col-sm-4">
-											<input ng-model="order.send_at" class="col-sm-12" type="Date" placeholder="要求送货时间"  ng-disabled="isDisable">
+										<div class="col-sm-6">
+											<div class="input-group date">
+												<input type="datetime" class="form-control" date-time ng-model="order.send_at" view="date" placeholder="要求送货时间" ng-disabled="isDisable">
+												<span class="input-group-addon"><i class="icon-calendar"></i></span>
+											 </div>
 										</div>
 									</div>
 								</form>				
@@ -213,7 +219,6 @@
 				<div class="widget-header">
 					<h4 class="lighter">货品清单</h4>
 					<div class="widget-toolbar no-border">
-						<a ng-click="new_goods()" ng-hide="isDisable"><i class="icon-file"></i></a>
 						<a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a>
 					</div>
 				</div>
@@ -230,7 +235,7 @@
 										<th>单位长宽高</th>
 										<th>总体积</th>
 										<th>详情</th>
-										<th></th>
+										<th><button  ng-hide="isDisable" ng-click="new_goods()" class="btn btn-primay btn-xs">添加</button></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -282,7 +287,7 @@
 				</div>
 				<div class="widget-body">
 					<div class="widget-main padding-6 no-padding-left no-padding-right">
-						<textarea ng-model="order.description" class="autosize-transition form-control" rows="6" width="100%"></textarea>
+						<textarea  ng-disabled="isDisable" ng-model="order.description" class="autosize-transition form-control" rows="6" width="100%"></textarea>
 					</div>
 				</div>
 			</div>
@@ -292,7 +297,6 @@
 				<div class="widget-header">
 					<h4 class="lighter">费用清单</h4>
 					<div class="widget-toolbar no-border">
-						<a href="#" ng-hide="isDisable"><i class="icon-file"></i></a>
 						<a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a>
 					</div>
 				</div>
@@ -305,41 +309,32 @@
 										<th>费用名称</th>
 										<th>金额（元）</th>
 										<th>备注</th>
-										<th></th>
+										<th><button ng-click="new_fee()" class="btn btn-primay btn-xs">添加</button></th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td><input class="col-sm-12" type="text" placeholder="费用名称"></td>
-										<td><input class="col-sm-12" type="text" placeholder="金额（元）"  ng-disabled="isDisable"></td>
-										<td><input class="col-sm-12" type="text" placeholder="备注"  ng-disabled="isDisable"></td>
+									<tr ng-repeat="item in order.fees">
+										<td><input ng-model="item.name" class="col-sm-12" type="text" placeholder="费用名称"></td>
+										<td><input ng-model="item.fee" class="col-sm-12" type="text" placeholder="金额（元）"></td>
+										<td><input ng-model="item.description" class="col-sm-12" type="text" placeholder="备注"></td>
 										<td>
-											<div class="btn-group" ng-hide="isDisable">
-												<button class="btn btn-xs btn-danger"><i class="icon-trash bigger-120"></i></button>
+											<div class="btn-group">
+												<button ng-click="del_fee(item.name)"  class="btn btn-xs btn-danger"><i class="icon-trash bigger-120"></i></button>
 											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>合计</td>
+										<td>{{order.sumfee}}</td>
+										<td></td>
+										<td>
 										</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
-						<form class="form-horizontal" role="form">
-							<div class="form-group">
-								<label class="col-sm-2 control-label">
-									<input class="ace" type="checkbox"  ng-disabled="isDisable">
-									<span class="lbl"> 是否保险</span>
-								</label>
-								<div class="col-sm-2">
-									<input  class="col-sm-12" type="text" placeholder="保额"   ng-disabled="isDisable">
-								</div>
-								<label class="col-sm-2 control-label no-padding-right"> 货主对账订单号 </label>
-								<div class="col-sm-3">
-									<input  class="col-sm-12" type="text" placeholder="货主对账订单号"   ng-disabled="isDisable">
-								</div>
-							</div>
-						</form>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<div ng-show="order._id" class="col-xs-10">
@@ -347,43 +342,40 @@
 				<div class="widget-header">
 					<h4 class="lighter">调度派车</h4>
 					<div class="widget-toolbar no-border">
-						<a href="#" ng-hide="isDisable"><i class="icon-file"></i></a>
+						<a  ng-click="new_dispatch()"><i class="icon-file"></i></a>
 						<a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a>
 					</div>
 				</div>
 				<div class="widget-body">
 					<div class="widget-main padding-6 no-padding-left no-padding-right">
 						<div class="error-container">
-							<div class="well">
+							<div class="well" ng-repeat="item in order.dispatchs">
 								<form class="form-horizontal" role="form">
 									<div class="form-group">
 										<label class="col-sm-1 control-label no-padding-right"> 车型 </label>
 										<div class="col-sm-2">
-											<input  class="col-sm-12" type="text" placeholder="车型"  ng-disabled="isDisable">
-										</div>
-										<label class="col-sm-1 control-label no-padding-right"> 数量 </label>
-										<div class="col-sm-2">
-											<input  class="col-sm-12" type="text" placeholder="数量"  ng-disabled="isDisable">
+											<input ng-model="item.car"  class="col-sm-12" type="text" placeholder="车型">
 										</div>
 										<label class="col-sm-1 control-label no-padding-right"> 运费 </label>
-										<div class="col-sm-2">
-											<input  class="col-sm-12" type="text" placeholder="运费"  ng-disabled="isDisable">
+										<div class="col-sm-1">
+											<input ng-model="item.fee"  class="col-sm-12" type="text" placeholder="运费">
 										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-2 control-label">
-											<input class="ace" type="checkbox"  ng-disabled="isDisable">
-											<span class="lbl"> 是否保险</span>
+										<label class="col-sm-1 control-label">
+											<input ng-model="item.isinsurance" class="ace" type="checkbox">
+											<span class="lbl"> 保险</span>
 										</label>
-										<div class="col-sm-2">
-											<input  class="col-sm-12" type="text" placeholder="保险"  ng-disabled="isDisable">
+										<div class="col-sm-1">
+											<input ng-model="item.insurance"  class="col-sm-12" type="text" placeholder="保险">
 										</div>
-										<label class="col-sm-2 control-label">
-											<input class="ace" type="checkbox"  ng-disabled="isDisable">
-											<span class="lbl"> 是否保险</span>
+										<label class="col-sm-1 control-label">
+											<input ng-model="item.ispublish" class="ace" type="checkbox">
+											<span class="lbl"> 抢单</span>
 										</label>
-										<div class="col-sm-2">
-											<input  class="col-sm-12" type="text" placeholder="保险"  ng-disabled="isDisable">
+										<div class="col-sm-3">
+											<div class="input-group date">
+												<input type="datetime" class="form-control" date-time ng-model="order.publishtime" view="date" placeholder="抢单时间">
+												<span class="input-group-addon"><i class="icon-calendar"></i></span>
+											 </div>
 										</div>
 									</div>
 								</form>
@@ -398,21 +390,25 @@
 												<th>单位长宽高</th>
 												<th>总体积</th>
 												<th>详情</th>
-												<th></th>
+												<th><button ng-show="item.car" ng-click="new_sub_goods(item.car)" class="btn btn-primay btn-xs">添加</button></th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td><input class="col-sm-12" type="text" placeholder="货品名称"  ng-disabled="isDisable"></td>
-												<td><input class="col-sm-12" type="text" placeholder="数量"  ng-disabled="isDisable"></td>
-												<td><input class="col-sm-12" type="text" placeholder="单位重量"  ng-disabled="isDisable"></td>
-												<td><input class="col-sm-12" type="text" placeholder="总重量"  ng-disabled="isDisable"></td>
-												<td><input class="col-sm-4" type="text" placeholder="长" ng-disabled="isDisable" ><input class="col-sm-4" type="text" placeholder="宽"  ng-disabled="isDisable"><input class="col-sm-4" type="text" placeholder="高"  ng-disabled="isDisable"></td>
-												<td><input class="col-sm-12" type="text" placeholder="总体积"  ng-disabled="isDisable"></td>
-												<td><input class="col-sm-12" type="text" placeholder="详情"  ng-disabled="isDisable"></td>
+											<tr ng-repeat="sub in item.goods">
+												<td><input ng-model="sub.name" class="col-sm-12" type="text" placeholder="货品名称"></td>
+												<td><input ng-model="sub.num" class="col-sm-12" type="number" placeholder="数量"></td>
+												<td><input ng-model="sub.uweight" class="col-sm-12" type="number" placeholder="单位重量"></td>
+												<td><input ng-model="sub.weight" class="col-sm-12" type="number" placeholder="总重量"></td>
 												<td>
-													<div class="btn-group" ng-hide="isDisable">
-														<button class="btn btn-xs btn-danger"><i class="icon-trash bigger-120"></i></button>
+													<input ng-model="sub.l" class="col-sm-4" type="number" placeholder="长">
+													<input ng-model="sub.w" class="col-sm-4" type="number" placeholder="宽">
+													<input ng-model="sub.h" class="col-sm-4" type="number" placeholder="高">
+												</td>
+												<td><input ng-model="sub.volumn" class="col-sm-12" type="text" placeholder="总体积"></td>
+												<td><input ng-model="sub.description" class="col-sm-12" type="text" placeholder="详情"></td>
+												<td>
+													<div class="btn-group">
+														<button ng-click="del_sub_goods(item.car, sub.name)" class="btn btn-xs btn-danger"><i class="icon-trash bigger-120"></i></button>
 													</div>
 												</td>
 											</tr>
@@ -432,11 +428,10 @@
 			<button ng-show="order._id" ng-click="drop()" class="btn btn-app btn-inverse btn-xs"><i class="icon-undo bigger-160"></i>{{lbl_drop}}</button>
 		</div>
 		<div class="col-sm-2 col-sm-offset-1">
-			<a ng-hide="isDisable" ng-click="save()" class="btn btn-app btn-primary btn-xs"><i class="icon-save bigger-160"></i>保存</a>
 			<a ng-show="isDisable" ng-click="edit()" class="btn btn-app btn-primary btn-xs"><i class="icon-save bigger-160"></i>修改</a>
 		</div>
 		<div class="col-sm-2 col-sm-offset-1">
-			<a ng-show="order._id" ng-click="accept()" class="btn btn-app btn-primary btn-xs"><i class="icon-save bigger-160"></i>受理</a>
+			<a ng-click="save()" class="btn btn-app btn-primary btn-xs"><i class="icon-save bigger-160"></i>提交</a>
 		</div>
 	</div>
 </div>

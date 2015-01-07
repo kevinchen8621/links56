@@ -8,10 +8,10 @@ define(function (require, exports, module) {
 					from: {},
 					to: {},
 					goods:[],
-					pickup_at: new Date(),
-					send_at: new Date(),
+					fees:[],
+					dispatchs:[],
 					status: "待做运输计划",
-					create_at: new Date(),
+					create_at: Date.now(),
 				};
 				$scope.isDisable = false;
 				$scope.lbl_order = "新建订单";
@@ -37,20 +37,19 @@ define(function (require, exports, module) {
 			}
 
 			$scope.save = function(){
-				$scope.order._id = Date.now();
+				$scope.order._id = $scope.order._id || Date.now();
 				$scope.orders = JSON.parse($window.localStorage.orders || "[]");
-				$scope.orders.push($scope.order);
+				var idx = _.findIndex($scope.orders, function(o){return o._id == $scope.order._id;});
+				if(idx > -1){
+					$scope.orders.splice(idx,1,$scope.order);
+				}else{
+					$scope.orders.push($scope.order);	
+				}
 				$window.localStorage.orders =  JSON.stringify($scope.orders);
-				$location.path("/order_edit/"+$scope.order._id);
+				$location.path("/order_dispatch/"+$scope.order._id);
 			}
 			$scope.drop = function(){
 				$scope.order.status = "不受理";
-				$scope.save();
-				$scope.new_order();
-			}
-
-			$scope.accept = function(){
-				$scope.order.status = "受理";
 				$scope.save();
 				$scope.new_order();
 			}
@@ -67,10 +66,58 @@ define(function (require, exports, module) {
 					volumn:0,
 					description:"",
 				});
-			}
+			};
 			$scope.del_goods = function(name){
 				$scope.order.goods = _.reject($scope.order.goods, function(item){return item.name == name});
-			}
+			};
+			$scope.new_fee = function(){
+				console.log($scope.order);
+				$scope.order.fees.push({
+					name:"",
+					fee:0,
+					description:"",
+				});
+			};
+			$scope.del_fee = function(name){
+				$scope.order.fees = _.reject($scope.order.fees, function(item){return item.name == name});
+			};
+			$scope.new_dispatch = function(){
+				$scope.order.dispatchs.push({
+					car:"",
+					num:1,
+					fee:0,
+					isinsurance:false,
+					insurance:0,
+					ispublish:false,
+					description:"",
+					goods: [],
+				});
+			};
+			$scope.del_dispatch = function(car){
+				$scope.order.dispatchs = _.reject($scope.order.dispatchs, function(item){return item.car == car});
+			};
+			$scope.new_sub_goods = function(car){
+				var dispatch =  _.find($scope.order.dispatchs, function(item){return item.car == car;});
+				if(dispatch){
+					dispatch.goods.push({
+						name:"",
+						num:1,
+						uweight: 0,
+						weight:0,
+						l:0,
+						w:0,
+						h:0,
+						volumn:0,
+						description:"",
+					});
+				}
+			};
+			$scope.del_sub_goods = function(car, name){
+				var dispatch =  _.find($scope.order.dispatchs, function(item){return item.car == car;});
+				if(dispatch){
+					dispatch.goods = _.reject(dispatch.goods, function(item){return item.name == name});
+				}
+			};
 		}]);
 	}
 });

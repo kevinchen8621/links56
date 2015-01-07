@@ -70,7 +70,7 @@
 		</div>
 		<div class="col-xs-12">
 			<div class="error-container">
-				<div class="well">
+				<!--div class="well">
 					<img src="assets/images/gallery/image-3.jpg" height="100">
 					<h5 class="pull-right">下单时间 2014-12-12 12:21</h5>
 					<hr>
@@ -95,9 +95,10 @@
 						<i class="icon-user"></i>
 						李四  13041666292
 					</h4>
-				</div>
+				</div-->
 				<div class="well" ng-repeat="order in orders">
 					<div class="row">
+						<a href="#/order_edit/{{order._id}}">
 						<div class="col-md-2"><h5>运单号：<span  class="blue">{{order._id}}</span></h5></div>
 						<div class="col-md-6"><h5 class="orange">{{order.status}} </h5></div>
 						<div class="col-md-4"><h5 class="pull-right">下单时间：{{order.create_at | date:"yyyy-MM-dd hh:mm"}}</h5></div>
@@ -111,6 +112,7 @@
 								<span class="inline" ng-repeat="item in order.goods">{{item.name}}：{{item.volumn}}方;</span>
 							</h5>
 						</div>
+						</a>
 					</div>
 					<hr class="small">
 					<div class="row">

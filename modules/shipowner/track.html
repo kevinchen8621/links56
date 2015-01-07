@@ -70,36 +70,34 @@
 		</div>
 		<div class="col-xs-12">
 			<div class="error-container">
-				<div class="well">
-					<h5>
-						订单号：123456  
-						<span class="pull-right red">待提货</span>
-					</h5>
-					<h3>上海 浦东 ——> 江苏 南通&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter red">10000元</span></h3>
-					<h6>11月09日 09:00  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12月09日 09:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter green">计划派车：2辆17.5米，1辆10米</span></h6>
-					<h6>螺丝钢：20方；变压器：20方；塑料管：20方；</h6>
-					<hr>
-					<h4 class="lighter smaller">
-						南通发发贸易有限公司
-						<i class="icon-user"></i>
-						李四  13041666292
-					</h4>
-				</div>
-				<div class="well">
-					<h5>
-						订单号：123456  
-						<span class="pull-right red">货品运输中</span>
-					</h5>
-					<h3>上海 浦东 ——> 江苏 南通&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter red">10000元</span></h3>
-					<h6>11月09日 09:00  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12月09日 09:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="header smaller lighter green">计划派车：2辆17.5米，1辆10米</span></h6>
-					<h6>螺丝钢：20方；变压器：20方；塑料管：20方；</h6>
-					<hr>
-					<h4 class="lighter smaller">
-						南通发发贸易有限公司
-						<i class="icon-user"></i>
-						李四  13041666292
-					</h4>
-				</div>
+				<div class="well" ng-repeat="order in orders">
+					<div class="row">
+						<a href="#/order_track/{{order._id}}">
+						<div class="col-md-2"><h5>运单号：<span  class="blue">{{order._id}}</span></h5></div>
+						<div class="col-md-6"><h5 class="orange">{{order.status}} </h5></div>
+						<div class="col-md-4"><h5 class="pull-right">下单时间：{{order.create_at | date:"yyyy-MM-dd hh:mm"}}</h5></div>
+						<div class="col-md-2"><h4>{{order.from.city}} {{order.from.district}}</h4></div>
+						<div class="col-md-1"><h4>——> </h4></div>
+						<div class="col-md-2"><h4>{{order.to.city}} {{order.to.district}}</h4></div>
+						<div class="col-md-7"><h4 class="orange">{{order.sumfee}}元</h4></div>
+						<div class="col-md-2"><h5>{{order.pickup_at | date:"MM月dd日 hh:mm"}}</h5></div>
+						<div class="col-md-2 col-md-offset-1"><h5 class="">{{order.send_at | date:"MM月dd日 hh:mm"}}</h5></div>
+						<div class="col-md-7"><span ng-repeat="dispatch in order.dispatchs"  class="orange">{{dispatch.num}}辆{{dispatch.car}};</span></div>
+						<div class="col-md-12">
+							<h5 class="">
+								<span class="inline" ng-repeat="item in order.goods">{{item.name}}：{{item.volumn}}方;</span>
+							</h5>
+						</div>
+						</a>
+					</div>
+					<hr class="small">
+					<div class="row">
+						<div class="col-md-3"><h4 class="blue">{{order.cust.name}}</h4></div>
+						<div class="col-md-5"><h4><i class="icon-user"></i> {{order.cust.contact}}</span>  {{order.cust.tel}}</h4></div>
+						<div class="col-md-2"><button class="btn btn-default btn-sm pull-right">查看相关车辆</button></div>
+						<div class="col-md-2"><button class="btn btn-danger btn-sm pull-right">查看司机位置</button></div>
+					</div>
+				</div>				
 			</div>
 
 			<!-- PAGE CONTENT ENDS -->

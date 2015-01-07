@@ -5,6 +5,7 @@ define(function (require, exports, module) {
 		"ngRoute",
 		"ngAnimate",
 		'localytics.directives',
+		'datePicker',
 	]);
 	require('./services.js')(app);
 	require('./directives.js')(app);
@@ -49,6 +50,24 @@ define(function (require, exports, module) {
 				{_id:10004, name:"上海高东造漆厂",province:"上海市", city:"上海市", district:"浦东新区", address:" 浦东南路588号25楼", contact:"麻子", tel:"13123443344"},
 			];			
 			$window.localStorage.tos = JSON.stringify(tos);
+		}
+		var orders = JSON.parse($window.localStorage.orders || "[]");
+		if(!orders || !orders.length){
+			orders = [
+				{"cust":{"_id":10002,"name":"广州紫光电器厂","province":"上海市","city":"上海市","district":"浦东新区","address":" 浦东南路588号23楼","contact":"李四","tel":"13123443344"},"from":{"_id":10002,"name":"广州紫光电器厂","province":"上海市","city":"上海市","district":"浦东新区","address":" 浦东南路588号23楼","contact":"李四","tel":"13123443344"},"to":{"_id":10003,"name":"上海三斯自行车厂","province":"上海市","city":"上海市","district":"浦东新区","address":" 浦东南路588号24楼","contact":"王二","tel":"13123443344"},"goods":[{"name":"螺纹钢","num":100,"uweight":0,"weight":50,"l":0,"w":0,"h":0,"volumn":"20","description":"","$$hashKey":"object:13"},{"name":"发动机","num":230,"uweight":0,"weight":45,"l":0,"w":0,"h":0,"volumn":"15","description":"","$$hashKey":"object:348"}],"fees":[{"name":"装卸费","fee":"250","description":"","$$hashKey":"object:355"},{"name":"运费","fee":"20000","description":"","$$hashKey":"object:357"},{"name":"单证费","fee":"150","description":"","$$hashKey":"object:359"}],"dispatchs":[{"car":"10米挂车","num":"3","fee":"3000","isinsurance":true,"insurance":"30000","ispublish":false,"description":"","goods":[{"name":"螺纹钢","num":1,"uweight":0,"weight":30,"l":0,"w":0,"h":0,"volumn":"12","description":"","$$hashKey":"object:372"},{"name":"发动机","num":1,"uweight":0,"weight":12,"l":0,"w":0,"h":0,"volumn":"5","description":"","$$hashKey":"object:374"}],"$$hashKey":"object:369"}],"status":"待做运输计划","create_at":1420597071350,"_id":1420598214045,"pickup_at":"2015-01-05T21:05:00.000Z","send_at":"2015-01-07T02:30:00.000Z","isinsurance":true,"insurance":"234000","refno":"12345678","description":"尽快"},
+				{"cust":{"_id":10002,"name":"广州紫光电器厂","province":"上海市","city":"上海市","district":"浦东新区","address":" 浦东南路588号23楼","contact":"李四","tel":"13123443344"},"from":{"_id":10002,"name":"广州紫光电器厂","province":"上海市","city":"上海市","district":"浦东新区","address":" 浦东南路588号23楼","contact":"李四","tel":"13123443344"},"to":{"_id":10003,"name":"上海三斯自行车厂","province":"上海市","city":"上海市","district":"浦东新区","address":" 浦东南路588号24楼","contact":"王二","tel":"13123443344"},"goods":[{"name":"螺纹钢","num":100,"uweight":0,"weight":50,"l":0,"w":0,"h":0,"volumn":"20","description":"","$$hashKey":"object:13"},{"name":"发动机","num":230,"uweight":0,"weight":45,"l":0,"w":0,"h":0,"volumn":"15","description":"","$$hashKey":"object:348"}],"fees":[{"name":"装卸费","fee":"250","description":"","$$hashKey":"object:355"},{"name":"运费","fee":"20000","description":"","$$hashKey":"object:357"},{"name":"单证费","fee":"150","description":"","$$hashKey":"object:359"}],"dispatchs":[{"car":"10米挂车","num":"3","fee":"3000","isinsurance":true,"insurance":"30000","ispublish":false,"description":"","goods":[{"name":"螺纹钢","num":1,"uweight":0,"weight":30,"l":0,"w":0,"h":0,"volumn":"12","description":"","$$hashKey":"object:372"},{"name":"发动机","num":1,"uweight":0,"weight":12,"l":0,"w":0,"h":0,"volumn":"5","description":"","$$hashKey":"object:374"}],"$$hashKey":"object:369"}],"status":"待做运输计划","create_at":1420597071350,"_id":1420598216253,"pickup_at":"2015-01-05T21:05:00.000Z","send_at":"2015-01-07T02:30:00.000Z","isinsurance":true,"insurance":"234000","refno":"12345678","description":"尽快"}
+			];
+			$window.localStorage.orders = JSON.stringify(orders);
+		}
+		var drivers = JSON.parse($window.localStorage.drivers || "[]");
+		if(!drivers || !drivers.length){
+			drivers = [
+				{_id:10001, name:"张三", tel:"13123443344"},
+				{_id:10002, name:"李四", tel:"13123443344"},
+				{_id:10003, name:"王二", tel:"13123443344"},
+				{_id:10004, name:"麻子", tel:"13123443344"},
+			];			
+			$window.localStorage.drivers = JSON.stringify(drivers);
 		}
 
 

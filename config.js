@@ -26,6 +26,8 @@ define(function(require, exports, module) {
 				.when('/order_edit/:id', {controller: 'OrderEditCtl',controllerUrl: 'modules/order/edit.js',templateUrl: 'modules/order/edit.html'})
 				.when('/order_edit', {controller: 'OrderEditCtl',controllerUrl: 'modules/order/edit.js',templateUrl: 'modules/order/edit.html'})
 				.when('/order_dispatch/:id', {controller: 'OrderDispatchCtl',controllerUrl: 'modules/order/dispatch.js',templateUrl: 'modules/order/dispatch.html'})
+				.when('/order_track/:id', {controller: 'OrderTrackCtl',controllerUrl: 'modules/order/track.js',templateUrl: 'modules/order/track.html'})
+				.when('/order_receive/:id', {controller: 'OrderReceiveCtl',controllerUrl: 'modules/order/receive.js',templateUrl: 'modules/order/receive.html'})
 				.when('/waybill_list', {controller: 'WaybillListCtl',controllerUrl: 'modules/waybill/list.js',templateUrl: 'modules/waybill/list.html'})
 				.when('/waybill_edit/:id', {controller: 'WaybillEditCtl',controllerUrl: 'modules/waybill/edit.js',templateUrl: 'modules/waybill/edit.html'})
 				.when('/waybill_edit', {controller: 'WaybillEditCtl',controllerUrl: 'modules/waybill/edit.js',templateUrl: 'modules/waybill/edit.html'})

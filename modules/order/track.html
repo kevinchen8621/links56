@@ -331,6 +331,21 @@
 		<div ng-show="order._id" class="col-xs-10">
 			<div class="widget-box transparent">
 				<div class="widget-header">
+					<h4 class="lighter">地图定位</h4>
+					<div class="widget-toolbar no-border">
+						<a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a>
+					</div>
+				</div>
+				<div class="widget-body">
+					<div class="widget-main padding-6 no-padding-left no-padding-right">
+						<img src="assets/images/gallery/image-1.jpg" width="100%">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-show="order._id" class="col-xs-10">
+			<div class="widget-box transparent">
+				<div class="widget-header">
 					<h4 class="lighter">调度派车</h4>
 					<div class="widget-toolbar no-border">
 						<a  ng-click="new_dispatch()"><i class="icon-file"></i></a>
@@ -347,9 +362,16 @@
 									<div class="col-md-2">车型：{{item.car}}</div>
 									<div class="col-md-2">保额：{{item.insurance}}</div>
 									<div class="col-md-3">
-										<select chosen class="chosen-select col-sm-8" ng-model="item.driver" ng-options="driver.name+driver.tel for driver in drivers">
-											<option value="">新建司机信息</option>
-										</select>
+										<button class="btn btn-primay btn-xs">跟踪</button>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">司机: {{item.driver.name}}</div>
+									<div class="col-md-2">联系电话: {{item.driver.tel}} </div>
+									<div class="col-md-2">车牌号: {{item.driver.carno}}</div>
+									<div class="col-md-2">抢单时间:{{item.driver.create_at}}</div>
+									<div class="col-md-3">
+										<button class="btn btn-primay btn-xs">跟踪</button>
 									</div>
 								</div>
 								<hr>
@@ -362,31 +384,22 @@
 										</div>
 									</div>
 									<div class="col-md-6">
-										<form class="form-horizontal" role="form">
-											<div class="form-group">
-												<label class="col-sm-2 control-label no-padding-right"> 司机姓名 </label>
-												<div class="col-sm-3">
-													<input ng-model="item.driver.name" class="col-sm-12" type="text" placeholder="司机姓名" >
-												</div>
-												<label class="col-sm-2 control-label no-padding-right"> 联系电话</label>
-												<div class="col-sm-5">
-													<input ng-model="item.driver.tel" class="col-sm-12" type="text" placeholder="联系电话">
-												</div>
+										<div class="profile-activity clearfix">
+											<div>
+												<img class="pull-left" alt="Alex Doe's avatar" src="assets/images/gallery/image-1.jpg">
+												异常情况描述.
+												<a href="#">播放留言</a>
+												<div class="time"><i class="icon-time bigger-110"></i>1个小时前 江苏 江阴</div>
 											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label no-padding-right"> 车牌号 </label>
-												<div class="col-sm-3">
-													<input ng-model="item.driver.carno" class="col-sm-12" type="text" placeholder="车牌号" >
-												</div>
-												<label class="col-sm-2 control-label no-padding-right"> 抢单时间 </label>
-												<div class="col-sm-5">
-													<div class="input-group date">
-														<input type="datetime" class="form-control" date-time ng-model="item.driver.create_at" view="date" placeholder="抢单时间" >
-														<span class="input-group-addon"><i class="icon-calendar"></i></span>
-													 </div>
-												</div>
+										</div>
+										<div class="profile-activity clearfix">
+											<div>
+												<img class="pull-left" alt="Alex Doe's avatar" src="assets/images/gallery/image-2.jpg">
+												异常情况描述.
+												<a href="#">播放留言</a>
+												<div class="time"><i class="icon-time bigger-110"></i>1个小时前 江苏 江阴</div>
 											</div>
-										</form>				
+										</div>
 									</div>
 								</div>
 							</div>
@@ -398,10 +411,10 @@
 	</div>
 	<div class="col-xs-10">
 		<div class="col-sm-2 col-sm-offset-1">
-			<a href="#/order_edit/{{order._id}}" class="btn btn-app btn-inverse btn-xs"><i class="icon-undo bigger-160"></i>返回修改</a>
+			
 		</div>
 		<div class="col-sm-2 col-sm-offset-1">
-			<a ng-click="save()" class="btn btn-app btn-primary btn-xs"><i class="icon-save bigger-160"></i>提交</a>
+			<a ng-click="drop()" class="btn btn-app btn-primary btn-xs"><i class="icon-undo bigger-160"></i>强行关闭</a>
 		</div>
 	</div>
 </div>
