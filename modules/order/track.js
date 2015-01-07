@@ -11,6 +11,25 @@ define(function (require, exports, module) {
 			}else{
 				return $location.path("/shipowner_track");
 			}
+        var longitude = 121.506191;
+        var latitude = 31.245554;
+        $scope.mapOptions = {
+            center: {
+                longitude: longitude,
+                latitude: latitude
+            },
+            zoom: 17,
+            city: 'ShangHai',
+            markers: [{
+                longitude: longitude,
+                latitude: latitude,
+                icon: 'img/mappiont.png',
+                width: 49,
+                height: 60,
+                title: 'Where',
+                content: 'Put description here'
+            }]
+        };
 
 			$scope.save = function(){
 				$scope.order._id = $scope.order._id || Date.now();

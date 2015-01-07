@@ -6,6 +6,7 @@ define(function (require, exports, module) {
 		"ngAnimate",
 		'localytics.directives',
 		'datePicker',
+		'baiduMap',
 	]);
 	require('./services.js')(app);
 	require('./directives.js')(app);
