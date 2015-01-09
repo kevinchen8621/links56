@@ -154,7 +154,7 @@ define(function (require, exports, module) {
 				set_user_roles: function(obj, cb){ post("/api/user/set_roles", obj, cb);},
 
 				get_tag_by_id: function(id, cb){get("/api/tag/"+id, cb);},
-				qry_tags_by_pre: function(pre, refid, cb){ if(_.isFunction(refid)){ get("/api/tags/pre/" + pre, refid);} else{ get("/api/tags/pre/"+pre +"/refid/"+ refid, cb); }},
+				qry_tags_by_type: function(type, cb){ get("/api/tags/" + type, cb);},
 				del_tag_by_id: function(id, cb){get("/api/tag/del/" + id, cb);},
 				set_tag: function(params, cb){post("/api/tag", params, cb);},
 
@@ -201,11 +201,6 @@ define(function (require, exports, module) {
 				get_pays: function(cb){ get("/api/pays", cb); },
 				set_pay: function(obj, cb){ post("/api/pay", cb); },
 				del_pay_by_id: function(id, cb){ get("/api/pay/del/"+id, cb); },
-
-				get_role_by_id:function(id, cb){get("/api/role/" + id, cb);},
-				qry_roles:function(pluginid, cb){if(_.isFunction(pluginid)){ get("/api/roles", pluginid);}else{get("/api/roles/pluginid/" + pluginid, cb);}},
-				del_role_by_id:function(id, cb){get("/api/role/del/" + id, cb);},
-				set_role:function(obj, cb){post("/api/role", obj, cb);},
 
 				get_member_by_id:function(id, cb){get("/api/member/" + id, cb);},
 				get_member_by_refid:function(refid, orgid, cb){if(_.isFunction(orgid)){ get("/api/member/refid/" + refid, orgid);}else{get("/api/member/refid/" + refid + "/orgid/" + orgid, cb);}},
