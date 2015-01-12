@@ -31,6 +31,8 @@ define(function(require, exports, module) {
 				.when('/waybill_list', {controller: 'WaybillListCtl',controllerUrl: 'modules/waybill/list.js',templateUrl: 'modules/waybill/list.html'})
 				.when('/waybill_edit/:id', {controller: 'WaybillEditCtl',controllerUrl: 'modules/waybill/edit.js',templateUrl: 'modules/waybill/edit.html'})
 				.when('/waybill_edit', {controller: 'WaybillEditCtl',controllerUrl: 'modules/waybill/edit.js',templateUrl: 'modules/waybill/edit.html'})
+				.when('/waybill_exception', {controller: 'WaybillExceptionCtl',controllerUrl: 'modules/waybill/exception.js',templateUrl: 'modules/waybill/exception.html'})
+				.when('/waybill_deal', {controller: 'WaybillDealCtl',controllerUrl: 'modules/waybill/deal.js',templateUrl: 'modules/waybill/deal.html'})
 				.otherwise({
 					redirectTo: '/dashboard_demo'
 				});
