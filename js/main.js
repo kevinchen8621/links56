@@ -127,10 +127,10 @@ jQuery(function($) {
 		$.ajax({
 			url: $(this).attr('action'),
 			beforeSend: function(){
-				form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email is sending...</p>').fadeIn() );
+				form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> 邮件正在发送...</p>').fadeIn() );
 			}
 		}).done(function(data){
-			form_status.html('<p class="text-success">Thank you for contact us. As early as possible  we will contact you</p>').delay(3000).fadeOut();
+			form_status.html('<p class="text-success">您的邮件已发送. 我们会尽快联系您</p>').delay(3000).fadeOut();
 		});
 	});
 
