@@ -127,7 +127,7 @@
 								<span class="menu-text"> 首页 </span>
 							</a>
 						</li>
-						<li class="open">
+						<li class="open" ng-class="{active: isActive('/dicshipowner')}">
 							<a href="#">
 								<i class="icon-desktop"></i>
 								<span class="menu-text"> 货主 </span>
@@ -135,8 +135,8 @@
 							</a>
 
 							<ul class="submenu" style="display:block">
-								<li>
-									<a href="#/shipowner_authentication">
+								<li ng-class="{active: isActive('/dicshipowner_authentication')}">
+									<a href="#/dicshipowner_authentication">
 										<i class="fa fa-angle-double-right "></i>
 										货主待认证<span class="badge badge-warning ">5</span>
 									</a>
@@ -144,7 +144,7 @@
 							</ul>
 						</li>
 
-						<li class="open">
+						<li class="open" ng-class="{active: isActive('/dicdriver')}">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-list"></i>
 								<span class="menu-text"> 司机 </span>
@@ -153,8 +153,8 @@
 							</a>
 
 							<ul class="submenu" style="display:block">
-								<li>
-									<a href="#/driver_authentication">
+								<li ng-class="{active: isActive('/dicdriver_authentication')}">
+									<a href="#/dicdriver_authentication">
 										<i class="fa fa-angle-double-right "></i>
 										司机待认证<span class="badge badge-warning ">5</span>
 									</a>
@@ -162,7 +162,7 @@
 							</ul>
 						</li>
 
-						<li class="open">
+						<li class="open" ng-class="{active: isActive('/shipowner')}">
 							<a href="#/shipowner_plan" class="dropdown-toggle">
 								<i class="icon-edit"></i>
 								<span class="menu-text"> 货主订单 </span>
@@ -171,28 +171,28 @@
 							</a>
 
 							<ul class="submenu" style="display:block">
-								<li>
+								<li ng-class="{active: isActive('/shipowner_plan')}">
 									<a href="#/shipowner_plan">
 										<i class="fa fa-angle-double-right "></i>
 										做运输计划<span class="badge badge-warning ">5</span>
 									</a>
 								</li>
 
-								<li>
+								<li ng-class="{active: isActive('/shipowner_dispatch')}">
 									<a href="#/shipowner_dispatch">
 										<i class="fa fa-angle-double-right "></i>
 										待派车<span class="badge badge-warning ">5</span>
 									</a>
 								</li>
 
-								<li>
+								<li ng-class="{active: isActive('/shipowner_track')}">
 									<a href="#/shipowner_track">
 										<i class="fa fa-angle-double-right "></i>
 										订单跟踪<span class="badge badge-default ">10</span>
 									</a>
 								</li>
 
-								<li>
+								<li ng-class="{active: isActive('/shipowner_receive')}">
 									<a href="#shipowner_receive">
 										<i class="fa fa-angle-double-right "></i>
 										代收款<span class="badge badge-warning ">5</span>
@@ -200,7 +200,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class="open">
+						<li class="open" ng-class="{active: isActive('/driver')}">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-tag"></i>
 								<span class="menu-text"> 司机运单 </span>
@@ -209,28 +209,28 @@
 							</a>
 
 							<ul class="submenu" style="display:block">
-								<li>
+								<li ng-class="{active: isActive('/driver_exception')}">
 									<a href="#/driver_exception">
 										<i class="fa fa-angle-double-right "></i>
 										异常处理<span class="badge badge-warning ">5</span>
 									</a>
 								</li>
 
-								<li>
+								<li ng-class="{active: isActive('/driver_track')}">
 									<a href="#/driver_track">
 										<i class="fa fa-angle-double-right "></i>
 										运单跟踪<span class="badge badge-warning ">5</span>
 									</a>
 								</li>
 
-								<li>
+								<li ng-class="{active: isActive('/driver_check')}">
 									<a href="#/driver_check">
 										<i class="fa fa-angle-double-right "></i>
 										审核付款金额<span class="badge badge-warning ">5</span>
 									</a>
 								</li>
 
-								<li>
+								<li ng-class="{active: isActive('/driver_pay')}">
 									<a href="#/driver_pay">
 										<i class="fa fa-angle-double-right "></i>
 										待付款<span class="badge badge-warning ">5</span>

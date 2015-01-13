@@ -1,0 +1,169 @@
+<div class="page-content">
+	<div class="page-header">
+		<h1>运单跟踪 <small><i class="fa fa-angle-double-right "></i> </small></h1>
+	</div>	
+	<div class="row">
+		<div class="col-xs-9">
+			<div class="row">
+				<div class="col-xs-3">运单号：LK321412334</div>
+				<div class="col-xs-3">运单状态：待发运</div>
+				<div class="col-xs-3">订单号：LK342342343</div>
+				<div class="col-xs-3"><button class="btn btn-xs btn-info pull-right"><i class="icon-search"></i>查找订单</button></div>
+				<div class="col-xs-3">司机：卢布</div>
+				<div class="col-xs-3">电话：133931241234</div>
+				<div class="col-xs-3">车牌号：LK342342343</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-xs-6">
+					<label style="padding-left:12px;"><i class="icon-home"></i> 提货</label>
+					<div class="profile-user-info profile-user-info-striped">
+						<div class="profile-info-row"><div class="profile-info-name"> 联系人 </div><div class="profile-info-value">xxxxx xxx（联系方式）</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 公司名称 </div><div class="profile-info-value">xxxxxxxxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 提货地址 </div><div class="profile-info-value">xx省 xx市xx区 xxxxxxxxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 要求提货时间 </div><div class="profile-info-value">xxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 实际提货时间 </div><div class="profile-info-value">xxxxxxxxxxxxx</div></div>
+					</div>				
+				</div>
+				<div class="col-xs-6">
+					<label style="padding-left:12px;"><i class="icon-home"></i> 到达</label>
+					<div class="profile-user-info profile-user-info-striped">
+						<div class="profile-info-row"><div class="profile-info-name"> 联系人 </div><div class="profile-info-value">xxxxx xxx（联系方式）</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 公司名称 </div><div class="profile-info-value">xxxxxxxxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 到货地址 </div><div class="profile-info-value">xx省 xx市xx区 xxxxxxxxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 要求到货时间 </div><div class="profile-info-value">xxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 实际到货时间 </div><div class="profile-info-value">xxxxxxxxxxxxx</div></div>
+					</div>				
+				</div>
+				<div class="col-xs-9">
+					<div class="space-12"></div>
+					<div class="table-responsive">
+						<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr><th>货品名称</th><th>数量</th><th>单位重量</th><th>总重量</th><th>单位长宽高</th><th>总体积</th></tr>
+							</thead>
+							<tbody>
+								<tr><td>xx</td><td>xx</td><td>xx</td><td>xx</td><td>xx</td><td>xx</td></tr>
+								<tr><td>总计</td><td>xx</td><td>xx</td><td>xx</td><td>xx</td><td>xx</td></tr>
+							</tbody>
+						</table>
+					</div>				
+				</div>
+				<div class="col-xs-3">
+					<div class="space-12"></div>
+					<div class="profile-user-info profile-user-info-striped">
+						<div class="profile-info-row"><div class="profile-info-name"> 运费 </div><div class="profile-info-value">xxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 保费 </div><div class="profile-info-value">xxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 保险保额 </div><div class="profile-info-value">xxxx</div></div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="space-12"></div>
+					<baidu-map options="mapOptions" style="width: 100%; height: 500px;display: block;"></baidu-map>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="space-12"></div>
+					<div class="profile-user-info profile-user-info-striped">
+						<div class="profile-info-row"><div class="profile-info-name"> 异常报告所处状态 </div><div class="profile-info-value">xxxxx xxx（联系方式）</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 异常报告时间 </div><div class="profile-info-value">xxxxxxxxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 相关图片 </div><div class="profile-info-value">xx省 xx市xx区 xxxxxxxxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 相关语音 </div><div class="profile-info-value">xxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 异常发生地点 </div><div class="profile-info-value">xxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 异常情况描述 </div><div class="profile-info-value"><input ng-model="order.cust.name" style="width:98%;" type="text" placeholder="异常情况描述" class="ng-pristine ng-untouched ng-valid"></div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 解决方案 </div><div class="profile-info-value"><input ng-model="order.cust.name" style="width:98%;" type="text" placeholder="解决方案" class="ng-pristine ng-untouched ng-valid"></div></div>
+					</div>				
+				</div>				
+				<div class="col-xs-6">
+					<div class="space-12"></div>
+					<div class="profile-user-info profile-user-info-striped">
+						<div class="profile-info-row"><div class="profile-info-name"> 异常报告所处状态 </div><div class="profile-info-value">xxxxx xxx（联系方式）</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 异常报告时间 </div><div class="profile-info-value">xxxxxxxxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 相关图片 </div><div class="profile-info-value">xx省 xx市xx区 xxxxxxxxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 相关语音 </div><div class="profile-info-value">xxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 异常发生地点 </div><div class="profile-info-value">xxxxxxxxxxxxx</div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 异常情况描述 </div><div class="profile-info-value"><input ng-model="order.cust.name" style="width:98%;" type="text" placeholder="异常情况描述" class="ng-pristine ng-untouched ng-valid"></div></div>
+						<div class="profile-info-row"><div class="profile-info-name"> 解决方案 </div><div class="profile-info-value"><input ng-model="order.cust.name" style="width:98%;" type="text" placeholder="解决方案" class="ng-pristine ng-untouched ng-valid"></div></div>
+					</div>				
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="space-12"></div>
+					<div class="table-responsive">
+						<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr><th>类别</th><th>提交时间</th><th>详情</th></tr>
+							</thead>
+							<tbody>
+								<tr><td>保单</td><td>xx</td><td><img width="50" src="assets/images/gallery/thumb-1.jpg"><img width="50" src="assets/images/gallery/thumb-2.jpg"><img width="50" src="assets/images/gallery/thumb-3.jpg"></td></tr>
+								<tr><td>提货交接单</td><td>xx</td><td><img width="50" src="assets/images/gallery/thumb-1.jpg"><img width="50" src="assets/images/gallery/thumb-2.jpg"><img width="50" src="assets/images/gallery/thumb-3.jpg"></td></tr>
+								<tr><td>提货过程</td><td>xx</td><td><img width="50" src="assets/images/gallery/thumb-1.jpg"><img width="50" src="assets/images/gallery/thumb-2.jpg"><img width="50" src="assets/images/gallery/thumb-3.jpg"></td></tr>
+								<tr><td>到达交接单</td><td>xx</td><td><img width="50" src="assets/images/gallery/thumb-1.jpg"><img width="50" src="assets/images/gallery/thumb-2.jpg"><img width="50" src="assets/images/gallery/thumb-3.jpg"></td></tr>
+								<tr><td>卸货过程</td><td>xx</td><td><img width="50" src="assets/images/gallery/thumb-1.jpg"><img width="50" src="assets/images/gallery/thumb-2.jpg"><img width="50" src="assets/images/gallery/thumb-3.jpg"></td></tr>
+							</tbody>
+						</table>
+					</div>				
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3">
+			<div class="widget-box">
+				<div class="widget-header widget-header-flat widget-header-small">
+					<h5><i class="icon-signal"></i>选择运单</h5>
+				</div>
+				<div class="widget-body">
+					<div class="widget-main">
+						<form class="form-search">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12">
+									<div class="input-group">
+										<input type="text" class="form-control search-query" placeholder="运单号/手机/司机名字">
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-purple btn-sm">
+												查找
+												<i class="icon-search icon-on-right bigger-110"></i>
+											</button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</form>
+						<div class="hr hr8 hr-double"></div>
+						<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: auto;">
+							<div id="profile-feed-1" class="profile-feed" style="overflow: hidden; width: auto; height: auto;">
+								<div class="profile-activity clearfix">
+									<div>
+										<img class="pull-left" alt="司机" src="assets/avatars/avatar5.png">
+										<a class="user" href="#"> 运单号 LK2009892433</a>
+										司机张飞 13041666292
+										<a href="#">状态：待发货</a>
+									</div>
+									<div class="tools action-buttons">
+										<a href="#" class="blue">
+											<i class="icon-ok bigger-125"></i>
+										</a>
+									</div>
+								</div>
+								<div class="profile-activity clearfix">
+									<div>
+										<img class="pull-left" alt="司机" src="assets/avatars/avatar5.png">
+										<a class="user" href="#"> 运单号 LK2009892433</a>
+										司机张飞 13041666292
+										<a href="#">状态：待发货</a>
+									</div>
+									<div class="tools action-buttons">
+										<a href="#" class="blue">
+											<i class="icon-ok bigger-125"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>					
+					</div><!-- /widget-main -->
+				</div><!-- /widget-body -->
+			</div>			
+		</div>
+	</div>
+</div>
