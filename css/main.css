@@ -246,6 +246,7 @@ section {
   color: #fff;
   display: inline-block;
   width: 24px;
+  padding-left: 4px;
   margin-left: -12px;
   font-size: 24px;
   line-height: 24px;
