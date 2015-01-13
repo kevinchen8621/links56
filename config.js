@@ -5,6 +5,7 @@ define(function(require, exports, module) {
 			$routeProvider
 				.when('/dashboard_demo', {controller: 'DashboardDemoCtl',controllerUrl: 'modules/dashboard/demo.js',templateUrl: 'modules/dashboard/demo.html'})
 				.when('/dicshipowner_authentication', {controller: 'ShipownerAuthenticationCtl',controllerUrl: 'modules/shipowner/authentication.js',templateUrl: 'modules/shipowner/authentication.html'})
+				.when('/dicshipowner_authdetail', {controller: 'ShipownerAuthdetailCtl',controllerUrl: 'modules/shipowner/authdetail.js',templateUrl: 'modules/shipowner/authdetail.html'})
 				.when('/shipowner_dispatch', {controller: 'ShipownerDispatchCtl',controllerUrl: 'modules/shipowner/dispatch.js',templateUrl: 'modules/shipowner/dispatch.html'})
 				.when('/shipowner_plan', {controller: 'ShipownerPlanCtl',controllerUrl: 'modules/shipowner/plan.js',templateUrl: 'modules/shipowner/plan.html'})
 				.when('/shipowner_neworder', {controller: 'ShipownerNeworderCtl',controllerUrl: 'modules/shipowner/neworder.js',templateUrl: 'modules/shipowner/neworder.html'})
@@ -14,6 +15,7 @@ define(function(require, exports, module) {
 				.when('/shipowner_edit/:id', {controller: 'ShipownerEditCtl',controllerUrl: 'modules/shipowner/edit.js',templateUrl: 'modules/shipowner/edit.html'})
 				.when('/shipowner_edit', {controller: 'ShipownerEditCtl',controllerUrl: 'modules/shipowner/edit.js',templateUrl: 'modules/shipowner/edit.html'})
 				.when('/dicdriver_authentication', {controller: 'DriverAuthenticationCtl',controllerUrl: 'modules/driver/authentication.js',templateUrl: 'modules/driver/authentication.html'})
+				.when('/dicdriver_authdetail', {controller: 'DriverAuthdetailCtl',controllerUrl: 'modules/driver/authdetail.js',templateUrl: 'modules/driver/authdetail.html'})
 				.when('/driver_check', {controller: 'DriverCheckCtl',controllerUrl: 'modules/driver/check.js',templateUrl: 'modules/driver/check.html'})
 				.when('/driver_exception', {controller: 'DriverExceptionCtl',controllerUrl: 'modules/driver/exception.js',templateUrl: 'modules/driver/exception.html'})
 				.when('/driver_pay', {controller: 'DriverPayCtl',controllerUrl: 'modules/driver/pay.js',templateUrl: 'modules/driver/pay.html'})
