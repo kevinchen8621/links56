@@ -13,10 +13,10 @@ jQuery(function($) {
 	$(window).resize(function(){'use strict',
 		$('#home-slider .item').css('height',slideHeight);
 	});
-	
-	//Scroll Menu
+
+
 	$(window).on('scroll', function(){
-		if( $(window).scrollTop()>slideHeight ){
+		if( $(window).scrollTop()>=slideHeight - 10 ){
 			$('.navbar-default').addClass('navbar-fixed-top');
 		} else {
 			$('.navbar-default').removeClass('navbar-fixed-top');
