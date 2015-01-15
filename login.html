@@ -73,14 +73,14 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="用户名" />
+															<input id="signin_mobile" type="text" class="form-control" placeholder="用户名" />
 															<i class="icon-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="密码" />
+															<input id="signin_password" type="password" class="form-control" placeholder="密码" />
 															<i class="icon-lock"></i>
 														</span>
 													</label>
@@ -93,7 +93,7 @@
 															<span class="lbl"> 记住账号</span>
 														</label>
 
-														<a href="/my.html" class="width-35 pull-right btn btn-sm btn-primary">
+														<a href="#"  onclick="signin(); return false;" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="icon-key"></i>
 															登陆
 														</a>
@@ -248,6 +248,7 @@
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
+		<script src="js/md5.js"></script>
 
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
@@ -269,8 +270,17 @@
 
 		<script type="text/javascript">
 			function show_box(id) {
-			 jQuery('.widget-box.visible').removeClass('visible');
-			 jQuery('#'+id).addClass('visible');
+			 	jQuery('.widget-box.visible').removeClass('visible');
+			 	jQuery('#'+id).addClass('visible');
+			}
+			function signin(){
+				var params = {
+					"mobile": jQuery("#signin_mobile").val(),
+					"password": hex_md5(jQuery("#signin_password").val())
+				};
+				jQuery.post("http://wx.links56.com/backstage/links/cuserinfo/signin.html", params,function(data){
+					alert(data);
+				});
 			}
 		</script>
 	</body>

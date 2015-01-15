@@ -1178,3 +1178,103 @@ ul.address {
 
 h1.icon_num{font-size: 72px;font-weight: 600;}
 h2.service_title{font-size: 26px;margin-bottom: 12px;}
+
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+.icon-cross-lighter:before {
+content: "\2573";
+}
+
+.pop{position:fixed;top:50%;left:50%;z-index:10000;background:#fff;display:none}
+.pop-close{position:absolute;top:-6px;right:-6px;width:24px;height:24px;background:#fff;cursor:pointer;-webkit-border-radius:100%;-moz-border-radius:100%;-ms-border-radius:100%;-o-border-radius:100%;border-radius:100%;color:#999;text-align:center;line-height:24px;font-size:13px}
+.pop-close:hover{color:#f04848}
+.pop-title{height:60px;line-height:60px;overflow:hidden;padding:0 20px;border-bottom:1px solid #dcdcdc}
+.pop-title .pop_name{font-size:20px;font-family:"Microsoft YaHei";float:left}
+.pop_name .grey{font-weight:normal;font-size:12px;padding-left:10px}
+.pop-title a.a_underline{float:right;font-size:12px}
+#cover{position:fixed;z-index:9999;top:0;left:0;width:100%;height:100%;background:#000;filter:alpha(opacity=50);-moz-opacity:.5;opacity:.5;display:none}
+i.icon-loginright,i.icon-logintanhao{width:32px;height:32px;font-size:20px;background-color:#7bc7ac;-webkit-border-radius:100%;-moz-border-radius:100%;-ms-border-radius:100%;-o-border-radius:100%;border-radius:100%;text-align:center;line-height:32px;color:#fff;display:inline-block;margin-right:20px}
+i.icon-logintanhao{background-color:#f5f5f5;color:#f04848}
+#pop-login{width:480px}
+.notice_error{padding-bottom:10px;color:#f04848;text-align:center}
+.notice_error_300{width:300px}
+.pop-content{padding:0 90px;font-size:12px;padding-bottom:40px}
+.form-item{margin:20px auto;position:relative}
+.form-input{-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-o-border-radius:5px;border-radius:5px;width:278px;padding:9px 10px;border:1px solid #dcdcdc;-webkit-transition:border-color ease-in-out .15s;transition:border-color ease-in-out .15s;font-size:12px}
+.form-input-focus{border-color:#5188a6;outline:0}
+.greyNotice{display:block;color:#999;padding-top:8px}
+.captchaBox .form-item{width:142px;float:left;margin:0 18px 0 0}
+.captchaBox .form-input{width:120px;margin:0}
+.captcha_imgBox{width:137px;border:1px solid #dcdcdc;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-o-border-radius:5px;border-radius:5px;float:left;height:34px;overflow:hidden}
+.captcha_imgBox img{height:34px;display:block;margin:0 auto}
+.item-tip{position:absolute;color:#999;top:10px;left:12px;transition:all linear .2s;background-color:#fff;padding:0 3px;font-size:12px}
+.item-tip-focus{top:-8px;font-size:12px;color:#5188a6}
+span.error{font-size:12px;color:#f04848}
+.refresh{font-size:12px;color:#999}
+.twoWeeks{height:25px;overflow:hidden;padding-top:10px;clear:both;margin-bottom:10px}
+.twoWeeks .ckeckBox{vertical-align:middle;margin-right:9px;color:#999}
+.twoWeeks label{padding-right:26px;cursor:pointer;color:#666}
+.btn_login,.btn_reg,.btn_grey{border:0;width:150px;padding-left:0;margin:0 auto 20px;cursor:pointer}
+.btn_reg{background-color:#7bc7ac}
+.co_login{text-align:center;color:#999}
+.co_login a{padding-left:12px}
+.wrap .refresh,span.error,.form-item .grey,span.correct{padding-left:20px}
+.form-content i.icon-loginright{color:#7bc7ac;margin-left:20px;display:none;background-color:#fff}
+span.error{display:none}
+.wrap .pop-title{height:32px;line-height:32px;margin-bottom:40px;padding:0 0 18px}
+.accountPage{margin-left:400px;padding-left:0}
+.wrap .btn_login,.wrap .btn_reg,.wrap .btn_grey{margin-bottom:40px;margin-left:75px}
+.wrap .refresh{height:34px;line-height:34px}
+.wrap .twoWeeks{padding-top:20px}
+.wrap .co_login,.login_form{width:300px}
+.wrap .btn_getMail{clear:both;margin-top:20px}
+.wrap .login_form .refresh{height:auto;line-height:normal}
+.mail_activation{display:block;width:610px;margin:0 auto;color:#666;padding:90px 0}
+.mail_activation span.grey{font-size:12px;display:block;padding-top:20px;margin-bottom:40px}
+.mail_activation_btn{height:40px;line-height:40px;font-size:12px;color:#999}
+.mail_activation_btn .btn_login{margin-left:0}
+.mail_activation_btn span{float:left;padding-left:20px}
+.mail_activation_btn .rFloat a{padding-left:10px}
+.mail_success{overflow:hidden;width:370px;margin:0 auto;color:#666;padding:90px 0}
+.mail_success i,.error_page i.icon-logintanhao{float:left;margin:4px 20px 15px 0}
+.mail_success span{font-size:12px;display:block;padding-top:10px}
+.error_page{width:250px;margin:0 auto;color:#333;padding-top:180px;padding-bottom:40px}
+.error_page i.icon-logintanhao{display:inline-block;margin:0 10px 0 0;float:none}
+.error_page span.grey{padding-left:45px;font-size:12px;display:block;padding-top:24px}
+.error_page span i{font-family:"SimSun"}
+.pop_main_box .pop-content{padding:0 0 40px;width:480px;text-align:center;font-size:14px;color:#666}
+.pop_main_box .pop-title{width:440px;height:60px;line-height:60px;padding:0 20px;margin-bottom:0}
+.pop_width_300,.pop_width_320,.pop_width_340,.pop_width_420{width:320px;margin:0 auto}
+.pop_width_300{width:300px}
+.pop_width_340{width:340px}
+.pop_width_420{width:420px}
+.pop_main_box p.pop_info{padding-top:26px;margin-bottom:20px}
+span.small_grey{display:block;font-size:12px;color:#999;line-height:20px}
+.a_blockBox{height:42px;overflow:hidden}
+a.a_redBlock,a.a_greyBlock{padding-left:0;width:150px;text-align:center;margin:0 auto}
+a.a_greyBlock{background-color:#ccc}
+.pop_jubao,.pop_jubao_other{padding-right:30px;font-size:12px;line-height:50px}
+.pop_jubao_other{padding-right:0}
+.pop_jubao input,.pop_jubao_other input{margin-right:4px;vertical-align:middle}
+.textarea_jubao{width:318px;min-width:318px;max-width:318px;color:#999;display:none}
+a.a_small{font-size:12px}
+.defaultAdd{text-align:left;font-size:12px;margin-top:-10px;margin-bottom:10px}
+.defaultAdd input{vertical-align:-2px;margin-right:6px}
+.pop_main_box .btn_login,.pop_main_box .btn_grey{margin-bottom:0}
+.pop_no_title .pop-content{width:310px;padding:40px 0;text-align:center;font-size:14px}
+.pop_no_title .pop-content i,.pop_no_title .pop_info,.pop_no_title .pop_info_show{display:inline-block}
+.pop_no_title .pop_info,.pop_no_title .pop_info_show{text-align:left;color:#666;line-height:20px;max-width:200px}
+.pop_no_title .pop-content i.icon-logintanhao{background-color:#f5f5f5;color:#f04848}
+.pop_no_title .oneLine i{vertical-align:-1px}
+.pop_no_title .twoLine i{vertical-align:8px}
+.pop_no_title .moreLine i{vertical-align:25px}
+.pop_no_title .pop_comment_info{padding-top:16px;clear:both}
+.pop_no_title .pop_comment_info span{padding:0 3px;color:#999;font-size:12px}
